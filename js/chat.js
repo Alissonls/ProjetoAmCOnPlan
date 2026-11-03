@@ -15,7 +15,7 @@ class AmCOnChatEngine {
     this.recordingTimer = null;
     this.recordingSeconds = 0;
     this.activeOperator = {
-      name: "Dra. Sofia",
+      name: "AmCo Atendente",
       role: "Assistente Virtual & Triagem AmCOn",
       avatar: "🩺",
       status: "Online agora • Resposta imediata"
@@ -468,7 +468,7 @@ class AmCOnChatEngine {
   loadInitialGreeting() {
     const greetingHTML = `
       <p class="font-medium text-slate-800">
-        Olá! Eu sou a <strong>Dra. Sofia</strong>, concierge virtual da <strong>AmCOn Saúde</strong>. 👋
+        Olá! Eu sou o <strong>AmCo Atendente</strong>, assistente virtual da <strong>AmCOn Saúde</strong>. 👋
       </p>
       <p class="mt-1 text-slate-600 text-xs">
         Como posso cuidar de você hoje? Escolha uma das opções rápidas abaixo ou digite sua dúvida:
@@ -1198,7 +1198,7 @@ class AmCOnChatEngine {
         window.amazonConnectBridge.endChat();
       }
       this.activeOperator = {
-        name: "Dra. Sofia",
+        name: "AmCo Atendente",
         role: "Assistente Virtual & Triagem AmCOn",
         avatar: "🩺",
         status: "Online agora • Resposta imediata"

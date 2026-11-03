@@ -1,6 +1,6 @@
 # AmCOn Saúde — Frontend & Chatbot Concierge 24/7
 
-Frontend moderno, profissional e de alta performance desenvolvido para a **AmCOn Saúde** (Planos de Saúde Individuais, Familiares, Empresariais e Sênior), com sistema integrado e interativo de **Chat Concierge & Triagem Clínica 24/7 (Dra. Sofia)**.
+Frontend moderno, profissional e de alta performance desenvolvido para a **AmCOn Saúde** (Planos de Saúde Individuais, Familiares, Empresariais e Sênior), com sistema integrado e interativo de **Chat Concierge & Triagem Clínica 24/7 (AmCo Atendente)**.
 
 ---
 
@@ -20,7 +20,7 @@ Este projeto foi construído para funcionar com **Zero Dependências** locais. N
 
 ---
 
-## 🩺 Destaques do Sistema de Chat (Dra. Sofia & Concierge 24/7)
+## 🩺 Destaques do Sistema de Chat (AmCo Atendente & Concierge 24/7)
 
 A interface e motor do chat foram construídos para entregar a melhor experiência de atendimento em saúde do mercado:
 
