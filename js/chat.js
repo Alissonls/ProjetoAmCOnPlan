@@ -207,10 +207,10 @@ class AmCOnChatEngine {
       this.removeTypingIndicator();
       if (data.role === 'AGENT') {
         this.activeOperator = {
-          name: data.sender || "Atendente Humano (AWS Connect)",
-          role: "Central de Relacionamento AmCOn",
+          name: data.sender || "Consultora Especialista AmCOn",
+          role: "Central de Atendimento Humanizado",
           avatar: "👩‍💼",
-          status: "Conectado via Amazon Connect"
+          status: "Conectada • Atendimento Humano"
         };
         this.updateOperatorUI();
       }
@@ -235,7 +235,7 @@ class AmCOnChatEngine {
     window.amazonConnectBridge.onChatEnded(() => {
       this.addBotMessage(`
         <div class="p-2.5 bg-slate-100 rounded-lg border border-slate-200 text-xs text-slate-600">
-          Atendimento via Amazon Connect encerrado pelo operador. Se precisar de mais alguma coisa, basta enviar uma mensagem!
+          Atendimento encerrado pelo consultor. Se precisar de mais alguma coisa, basta enviar uma mensagem!
         </div>
       `);
     });
@@ -491,7 +491,7 @@ class AmCOnChatEngine {
           <span>🏥</span> Buscar Hospitais & Médicos
         </button>
         <button class="quick-chip" data-action="flow_humano">
-          <span>👤</span> Falar com Consultor Humano (AWS Connect)
+          <span>👤</span> Falar com Consultor Humano
         </button>
       </div>
     `;
@@ -813,7 +813,7 @@ class AmCOnChatEngine {
           <button class="quick-chip" data-action="flow_cotacao">💰 Ver Tabela de Planos</button>
           <button class="quick-chip" data-action="flow_carteirinha">🪪 Emitir Carteirinha</button>
           <button class="quick-chip" data-action="flow_boleto">📄 2ª Via de Pagamento</button>
-          <button class="quick-chip" data-action="flow_humano">👤 Falar com Humano (AWS Connect)</button>
+          <button class="quick-chip" data-action="flow_humano">👤 Falar com Consultor Humano</button>
         </div>
       `);
     }, 900);
@@ -1159,7 +1159,7 @@ class AmCOnChatEngine {
         <div class="p-3 bg-sky-50 border border-sky-200 rounded-xl text-xs text-slate-800">
           <div class="flex items-center gap-2 font-bold text-sky-900 mb-1">
             <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span>
-            Transferindo para Atendimento Humano via Amazon Connect...
+            Transferindo para Atendimento Humano...
           </div>
           <p class="text-slate-600">
             Você é o <strong>1º da fila</strong>. Conectando com nossa consultora especialista em planos de saúde.
@@ -1171,7 +1171,7 @@ class AmCOnChatEngine {
       setTimeout(() => {
         this.activeOperator = {
           name: "Camila Duarte",
-          role: "Especialista AmCOn • Amazon Connect",
+          role: "Consultora Especialista AmCOn",
           avatar: "👩‍💼",
           status: "Conectada • Atendimento Humano"
         };
@@ -1179,7 +1179,7 @@ class AmCOnChatEngine {
 
         this.addBotMessage(`
           <p class="text-xs text-slate-800">
-            Olá! Me chamo <strong>Camila Duarte</strong> e assumi seu atendimento via Amazon Connect agora. Já estou com todo o histórico da conversa na tela.
+            Olá! Me chamo <strong>Camila Duarte</strong> e assumi seu atendimento agora. Já estou com todo o histórico da conversa na tela.
           </p>
           <p class="mt-1 text-xs text-slate-700">
             ${customContext ? customContext + ". " : ""}Como posso te apoiar hoje? Se preferir, também posso te ligar ou mandar a proposta por WhatsApp!

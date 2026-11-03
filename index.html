@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AmCOn Saúde | Projeto Demonstrativo de Plano de Saúde</title>
-  <meta name="description" content="Landing page de demonstração para plano de saúde com dados fictícios, cotação online e chat inteligente com integração Amazon Connect.">
+  <meta name="description" content="Landing page de demonstração para plano de saúde com dados fictícios, cotação online e atendimento inteligente 24h.">
   
   <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,7 +48,7 @@
         Projeto Demonstrativo • Dados Fictícios para Fins de Portfólio & Desenvolvimento
       </span>
       <span class="text-slate-400 text-[11px]">
-        Portas ativas para integração com <strong>Amazon Connect</strong>
+        Atendimento 24 horas • Cobertura Nacional
       </span>
     </div>
   </div>
@@ -313,7 +313,7 @@
           </div>
           <h4 class="text-sm font-bold text-slate-900">Chatbot Inteligente</h4>
           <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-            Triagem clínica imediata e portas ativas para atendimento humano no Amazon Connect.
+            Triagem rápida de sintomas e suporte humanizado sempre que você precisar.
           </p>
         </div>
 
@@ -330,7 +330,7 @@
       </span>
       <h3 class="text-xl font-bold text-slate-900">Sobre esta aplicação</h3>
       <p class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto">
-        Este projeto foi desenvolvido como uma landing page de front-end para plano de saúde com <strong>dados fictícios</strong>. Ele integra uma assistente virtual interativa (AmCo Atendente) e possui arquitetura desacoplada com portas abertas para conexão com o <strong>Amazon Connect</strong> (AWS Contact Center, ChatJS e WebSockets).
+        Este projeto foi desenvolvido como uma landing page de front-end para plano de saúde com <strong>dados fictícios</strong>. Ele integra um assistente virtual interativo (AmCo Atendente) para cotações e triagem médica 24 horas.
       </p>
     </div>
   </section>
@@ -348,8 +348,8 @@
       </div>
 
       <div class="p-4 bg-white rounded-xl border border-slate-200 text-xs text-slate-700">
-        <strong class="text-slate-900 block mb-1">Como o Amazon Connect é conectado?</strong>
-        O front-end possui o arquivo <code>js/amazon-connect.js</code> e um botão no topo do chat (<em>⚡ AWS Connect</em>) onde você pode testar a conexão com uma API Gateway/Lambda real da AWS.
+        <strong class="text-slate-900 block mb-1">Como solicitar atendimento ou cotação?</strong>
+        Basta clicar no balão do chat no canto inferior direito para conversar com o AmCo Atendente e obter informações imediatas.
       </div>
     </div>
   </section>
@@ -363,75 +363,6 @@
       </p>
     </div>
   </footer>
-
-  <!-- ==========================================================================
-       MODAL: CONFIGURAÇÃO AMAZON CONNECT (PORTAS ABERTAS)
-       ========================================================================== -->
-  <div id="amazon-connect-modal" class="hidden fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative border border-slate-200 max-h-[90vh] overflow-y-auto">
-      
-      <button id="close-aws-modal-btn" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 font-bold text-xl">
-        &times;
-      </button>
-
-      <div class="flex items-center gap-3">
-        <div class="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-200 text-amber-700 flex items-center justify-center font-black text-xl">
-          ⚡
-        </div>
-        <div>
-          <h3 class="text-lg font-bold text-slate-900">Integração Amazon Connect</h3>
-          <p class="text-xs text-slate-500">Portas de comunicação ativas para Contact Flows, ChatJS e WebSockets AWS</p>
-        </div>
-      </div>
-
-      <div id="aws-test-status-box" class="hidden mt-4"></div>
-
-      <form id="aws-connect-config-form" class="mt-5 space-y-4">
-        
-        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between">
-          <div>
-            <strong class="text-xs font-bold text-slate-800 block">Modo Amazon Connect Live</strong>
-            <span class="text-[11px] text-slate-500 block">Roteia mensagens para o seu contact center AWS</span>
-          </div>
-          <label class="relative inline-flex items-center cursor-pointer">
-            <input type="checkbox" id="aws-config-enabled" class="sr-only peer">
-            <div class="w-11 h-6 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-amber-500"></div>
-          </label>
-        </div>
-
-        <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1">API Gateway Endpoint (StartChatContact):</label>
-          <input type="url" id="aws-config-endpoint" placeholder="https://seu-api-id.execute-api.us-east-1.amazonaws.com/prod/startChatContact" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-800 font-mono focus:ring-2 focus:ring-amber-500 focus:outline-none">
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Região AWS:</label>
-            <input type="text" id="aws-config-region" placeholder="us-east-1" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 text-xs text-slate-800 font-mono focus:ring-2 focus:ring-amber-500 focus:outline-none">
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Instance ID:</label>
-            <input type="text" id="aws-config-instance" placeholder="ID da Instância" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 text-xs text-slate-800 font-mono focus:ring-2 focus:ring-amber-500 focus:outline-none">
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Contact Flow ID:</label>
-            <input type="text" id="aws-config-flow" placeholder="ID do Fluxo" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 text-xs text-slate-800 font-mono focus:ring-2 focus:ring-amber-500 focus:outline-none">
-          </div>
-        </div>
-
-        <div class="flex flex-col sm:flex-row gap-2 pt-2">
-          <button type="button" id="test-aws-connection-btn" class="flex-1 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs rounded-xl border border-slate-300 transition flex items-center justify-center gap-1.5">
-            <span>⚡</span> Testar Conexão / Handshake
-          </button>
-          <button type="submit" class="flex-1 py-2.5 bg-amber-500 hover:bg-amber-600 text-slate-900 font-extrabold text-xs rounded-xl shadow-md transition">
-            Salvar Configurações
-          </button>
-        </div>
-
-      </form>
-
-    </div>
-  </div>
 
   <!-- ==========================================================================
        BALÃO DO CHAT NO CANTO INFERIOR DIREITO (WIDGET FLUTUANTE)
@@ -462,12 +393,6 @@
 
         <!-- Controles da Janela -->
         <div class="flex items-center gap-1.5">
-          <!-- Botão Badge Status do Amazon Connect -->
-          <button id="aws-connect-badge-btn" class="text-[10px] bg-amber-500/20 text-amber-200 border border-amber-400/40 px-2 py-0.5 rounded font-mono transition flex items-center gap-1 cursor-pointer hover:bg-amber-500/30" title="Amazon Connect: Portas Prontas (Clique para configurar)">
-            <span class="w-1.5 h-1.5 rounded-full bg-amber-400" id="aws-status-dot"></span>
-            <span id="aws-status-text">AWS Connect</span>
-          </button>
-
           <!-- Botão Som -->
           <button id="chat-sound-btn" class="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition" title="Silenciar sons">
             <svg class="w-4 h-4 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
