@@ -467,33 +467,12 @@ class AmCOnChatEngine {
 
   loadInitialGreeting() {
     const greetingHTML = `
-      <p class="font-medium text-slate-800">
-        Olá! Eu sou o <strong>AmCo Atendente</strong>, assistente virtual da <strong>AmCOn Saúde</strong>. 👋
+      <p class="font-medium text-slate-800 text-sm">
+        Olá! Eu sou o <strong>AmCo Atendente</strong>. 👋
       </p>
-      <p class="mt-1 text-slate-600 text-xs">
-        Como posso cuidar de você hoje? Escolha uma das opções rápidas abaixo ou digite sua dúvida:
+      <p class="mt-1.5 text-slate-700 text-sm font-semibold">
+        No que posso ajudar?
       </p>
-      
-      <div class="quick-chips-wrapper">
-        <button class="quick-chip" data-action="flow_telemedicina">
-          <span>🩺</span> Triagem Médica 24h
-        </button>
-        <button class="quick-chip" data-action="flow_cotacao">
-          <span>💰</span> Simular Planos & Preços
-        </button>
-        <button class="quick-chip" data-action="flow_carteirinha">
-          <span>🪪</span> Carteirinha Digital
-        </button>
-        <button class="quick-chip" data-action="flow_boleto">
-          <span>📄</span> 2ª Via Boleto / PIX
-        </button>
-        <button class="quick-chip" data-action="flow_rede">
-          <span>🏥</span> Buscar Hospitais & Médicos
-        </button>
-        <button class="quick-chip" data-action="flow_humano">
-          <span>👤</span> Falar com Consultor Humano
-        </button>
-      </div>
     `;
 
     this.addBotMessage(greetingHTML, false);
@@ -805,16 +784,12 @@ class AmCOnChatEngine {
 
       // Resposta padrão
       this.addBotMessage(`
-        <p class="text-xs text-slate-700">
-          Entendi sua solicitação! Como sou um assistente especializado em saúde e planos da <strong>AmCOn</strong>, veja qual dos serviços abaixo melhor resolve sua necessidade:
+        <p class="text-sm text-slate-800">
+          Olá! No que posso ajudar você?
         </p>
-        <div class="quick-chips-wrapper mt-2">
-          <button class="quick-chip" data-action="flow_telemedicina">🩺 Fazer Triagem Médica</button>
-          <button class="quick-chip" data-action="flow_cotacao">💰 Ver Tabela de Planos</button>
-          <button class="quick-chip" data-action="flow_carteirinha">🪪 Emitir Carteirinha</button>
-          <button class="quick-chip" data-action="flow_boleto">📄 2ª Via de Pagamento</button>
-          <button class="quick-chip" data-action="flow_humano">👤 Falar com Consultor Humano</button>
-        </div>
+        <p class="text-xs text-slate-500 mt-1">
+          Você pode me perguntar sobre cotação de planos, coberturas, telemedicina, 2ª via ou solicitar atendimento com um consultor.
+        </p>
       `);
     }, 900);
   }
