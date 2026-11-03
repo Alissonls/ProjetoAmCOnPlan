@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AmCOn Saúde | Planos de Saúde Individuais, Familiares e Empresariais</title>
-  <meta name="description" content="Planos de saúde completos com cobertura nacional, telemedicina 24h sem carência, os melhores hospitais do país e reembolso em até 48h. Simule online!">
+  <title>AmCOn Saúde | Projeto Demonstrativo de Plano de Saúde</title>
+  <meta name="description" content="Landing page de demonstração para plano de saúde com dados fictícios, cotação online e chat inteligente com integração Amazon Connect.">
   
   <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -24,17 +24,10 @@
             brand: {
               50: '#f0f9ff',
               100: '#e0f2fe',
-              200: '#bae6fd',
               500: '#0284c7',
               600: '#0369a1',
               700: '#075985',
-              800: '#0c4a6e',
-              900: '#082f49',
-              dark: '#0A192F',
-            },
-            medical: {
-              teal: '#0D9488',
-              emerald: '#10B981',
+              900: '#0c4a6e',
             }
           }
         }
@@ -42,917 +35,226 @@
     }
   </script>
 
-  <!-- Estilos Customizados & Sistema de Design -->
+  <!-- Estilos Customizados & Chat -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-sky-500 selection:text-white">
 
-  <!-- ==========================================================================
-       BARRA SUPERIOR REGULATÓRIA & ATENDIMENTO 24H
-       ========================================================================== -->
-  <div class="bg-slate-900 text-slate-300 text-xs py-2 border-b border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2">
-      <div class="flex items-center gap-4 flex-wrap justify-center sm:justify-start">
-        <span class="inline-flex items-center gap-1.5 text-sky-400 font-semibold">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          Registro ANS nº 42.198-7
-        </span>
-        <span class="hidden md:inline text-slate-600">|</span>
-        <span class="text-slate-400">SAC 24h & Emergência: <strong class="text-white">0800 770 2026</strong></span>
-      </div>
-
-      <div class="flex items-center gap-4 text-[11px]">
-        <button onclick="document.dispatchEvent(new CustomEvent('openAmCOnChat', {detail: {flow: 'flow_telemedicina'}}))" class="flex items-center gap-1.5 text-teal-300 hover:text-teal-200 transition font-medium">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-          Pronto-Atendimento Virtual 24h
-        </button>
-        <span class="text-slate-600">|</span>
-        <button class="open-client-portal-btn text-sky-300 hover:text-sky-200 transition font-medium">
-          Espaço do Beneficiário
-        </button>
-      </div>
+  <!-- AVISO DE PROJETO / DADOS FICTÍCIOS -->
+  <div class="bg-gradient-to-r from-sky-900 to-slate-900 text-white text-xs py-2 px-4 text-center border-b border-sky-800/40">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1.5">
+      <span class="inline-flex items-center gap-1.5 text-sky-300 font-semibold">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        Projeto Demonstrativo • Dados Fictícios para Fins de Portfólio & Desenvolvimento
+      </span>
+      <span class="text-slate-400 text-[11px]">
+        Portas ativas para integração com <strong>Amazon Connect</strong>
+      </span>
     </div>
   </div>
 
-  <!-- ==========================================================================
-       HEADER & NAVEGAÇÃO PRINCIPAL
-       ========================================================================== -->
-  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+  <!-- HEADER / NAVEGAÇÃO SIMPLES -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       
       <!-- Logo da Marca -->
-      <a href="#" class="flex items-center gap-3 group">
-        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-sky-600 to-teal-500 p-0.5 shadow-md shadow-sky-500/20 group-hover:scale-105 transition">
-          <div class="w-full h-full bg-slate-900 rounded-[14px] flex items-center justify-center text-white">
-            <svg class="w-6 h-6 text-sky-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              <path d="M8 12h8"/>
-              <path d="M12 8v8"/>
-            </svg>
-          </div>
+      <a href="#" class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-600 to-teal-500 flex items-center justify-center text-white font-bold shadow-md shadow-sky-500/20">
+          <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M8 12h8"/>
+            <path d="M12 8v8"/>
+          </svg>
         </div>
         <div>
-          <span class="text-xl font-extrabold tracking-tight text-slate-900 flex items-center gap-1">
-            AmCOn <span class="text-sky-600 font-black">Saúde</span>
-          </span>
-          <span class="block text-[10px] font-semibold text-slate-500 tracking-wider uppercase -mt-1">
-            Planos & Bem-Estar
+          <span class="text-lg font-black tracking-tight text-slate-900">
+            AmCOn <span class="text-sky-600">Saúde</span>
           </span>
         </div>
       </a>
 
-      <!-- Menu Desktop -->
-      <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-600">
-        <a href="#planos" class="hover:text-sky-600 transition">Nossos Planos</a>
-        <a href="#rede" class="hover:text-sky-600 transition">Rede Credenciada</a>
-        <a href="#telemedicina" class="hover:text-sky-600 transition">Telemedicina 24h</a>
-        <a href="#simulador" class="hover:text-sky-600 transition">Simulador</a>
-        <a href="#diferenciais" class="hover:text-sky-600 transition">Vantagens</a>
-        <a href="#faq" class="hover:text-sky-600 transition">Dúvidas (FAQ)</a>
+      <!-- Menu Simples -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-600">
+        <a href="#planos" class="hover:text-sky-600 transition">Planos</a>
+        <a href="#vantagens" class="hover:text-sky-600 transition">Vantagens</a>
+        <a href="#sobre" class="hover:text-sky-600 transition">Sobre o Projeto</a>
+        <a href="#faq" class="hover:text-sky-600 transition">Dúvidas</a>
       </nav>
 
-      <!-- Botões de Ação do Header -->
-      <div class="hidden sm:flex items-center gap-3">
-        <button class="open-client-portal-btn px-4 py-2.5 rounded-xl border border-slate-300 text-slate-700 hover:border-sky-500 hover:text-sky-600 text-xs font-bold transition flex items-center gap-2">
-          <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-          Área do Cliente
+      <!-- Botão de Ação -->
+      <div class="flex items-center gap-3">
+        <button onclick="document.dispatchEvent(new CustomEvent('openAmCOnChat'))" class="px-4 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold shadow-md shadow-sky-600/20 transition flex items-center gap-1.5">
+          <span>💬</span> Falar com a Dra. Sofia
         </button>
-
-        <a href="#simulador" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-sky-600 to-sky-700 hover:from-sky-700 hover:to-sky-800 text-white text-xs font-bold shadow-md shadow-sky-600/20 hover:shadow-lg hover:shadow-sky-600/30 transition transform hover:-translate-y-0.5">
-          Simular Meu Plano
-        </a>
       </div>
 
-      <!-- Botão Hambúrguer Mobile -->
-      <button id="mobile-menu-toggle-btn" class="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-      </button>
-    </div>
-
-    <!-- Dropdown Mobile Menu -->
-    <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 py-4 space-y-3 text-sm font-semibold">
-      <a href="#planos" class="block py-2 text-slate-700 hover:text-sky-600">Nossos Planos</a>
-      <a href="#rede" class="block py-2 text-slate-700 hover:text-sky-600">Rede Credenciada</a>
-      <a href="#telemedicina" class="block py-2 text-slate-700 hover:text-sky-600">Telemedicina 24h</a>
-      <a href="#simulador" class="block py-2 text-slate-700 hover:text-sky-600">Simulador Passo a Passo</a>
-      <a href="#diferenciais" class="block py-2 text-slate-700 hover:text-sky-600">Vantagens & Benefícios</a>
-      <a href="#faq" class="block py-2 text-slate-700 hover:text-sky-600">Dúvidas Frequentes</a>
-      <div class="pt-3 border-t border-slate-100 flex flex-col gap-2">
-        <button class="open-client-portal-btn w-full py-2.5 border border-slate-300 rounded-xl text-center text-xs font-bold text-slate-700">Área do Cliente</button>
-        <a href="#simulador" class="w-full py-2.5 bg-sky-600 text-white rounded-xl text-center text-xs font-bold">Simular Plano Agora</a>
-      </div>
     </div>
   </header>
 
-  <!-- ==========================================================================
-       HERO SECTION COM COTAÇÃO RÁPIDA
-       ========================================================================== -->
-  <section class="relative overflow-hidden bg-gradient-to-b from-sky-50/60 via-white to-slate-50 pt-12 pb-20 lg:pt-16 lg:pb-28">
-    <div class="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(#0284c7_1px,transparent_1px)] [background-size:24px_24px]"></div>
-    
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
-        <!-- Conteúdo do Hero -->
-        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-          
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-100/80 border border-sky-200 text-sky-800 text-xs font-bold">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            Campanha de Portabilidade: Zero Carência para Consultas & Exames
-          </div>
-
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            A proteção que sua vida merece, com a <span class="text-gradient">agilidade</span> que você precisa.
-          </h1>
-
-          <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-            Tenha acesso aos melhores hospitais e laboratórios do Brasil, pronto-atendimento virtual 24/7 em menos de 5 minutos e reembolso 100% digital via Pix pelo nosso app.
-          </p>
-
-          <!-- Selos de Confiança -->
-          <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-slate-600 text-xs font-medium">
-            <div class="flex items-center gap-2">
-              <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
-                ✓
-              </div>
-              <div>
-                <strong class="text-slate-800 block">+650 mil</strong> Vidas protegidas
-              </div>
-            </div>
-
-            <div class="flex items-center gap-2">
-              <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center font-bold">
-                ★
-              </div>
-              <div>
-                <strong class="text-slate-800 block">4.9 / 5.0</strong> Satisfação dos clientes
-              </div>
-            </div>
-
-            <div class="flex items-center gap-2">
-              <div class="w-8 h-8 rounded-lg bg-sky-100 text-sky-700 flex items-center justify-center font-bold">
-                ⚡
-              </div>
-              <div>
-                <strong class="text-slate-800 block">Reembolso 48h</strong> Direto no Pix
-              </div>
-            </div>
-          </div>
-
-          <!-- CTAs Principais -->
-          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-            <a href="#simulador" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm shadow-lg shadow-sky-600/30 hover:shadow-xl transition transform hover:-translate-y-0.5 text-center">
-              Calcular Preço Agora
-            </a>
-            <button onclick="document.dispatchEvent(new CustomEvent('openAmCOnChat', {detail: {flow: 'flow_cotacao'}}))" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-sm border border-slate-300 shadow-sm transition flex items-center justify-center gap-2">
-              <svg class="w-4 h-4 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
-              Converse com a Dra. Sofia no Chat
-            </button>
-          </div>
-        </div>
-
-        <!-- Card de Cotação Rápida no Hero -->
-        <div class="lg:col-span-5">
-          <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-xl shadow-slate-200/60 border border-slate-200 relative">
-            <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-[11px] font-extrabold uppercase px-3 py-1 rounded-full shadow-sm">
-              Cotação Instantânea
-            </div>
-
-            <h3 class="text-lg font-bold text-slate-900">Encontre o plano sob medida</h3>
-            <p class="text-xs text-slate-500 mt-1">Preencha seus dados para visualizar as opções recomendadas:</p>
-
-            <form id="hero-quick-quote-form" class="mt-6 space-y-4">
-              <div>
-                <label class="block text-xs font-bold text-slate-700 mb-1.5">Quem vai utilizar o plano?</label>
-                <div class="grid grid-cols-3 gap-2">
-                  <label class="border border-slate-200 rounded-xl p-2.5 text-center cursor-pointer hover:border-sky-500 has-[:checked]:border-sky-600 has-[:checked]:bg-sky-50/60 transition text-xs font-semibold">
-                    <input type="radio" name="hero_type" value="individual" class="sr-only" checked>
-                    <span>👤 Só Eu</span>
-                  </label>
-                  <label class="border border-slate-200 rounded-xl p-2.5 text-center cursor-pointer hover:border-sky-500 has-[:checked]:border-sky-600 has-[:checked]:bg-sky-50/60 transition text-xs font-semibold">
-                    <input type="radio" name="hero_type" value="familia" class="sr-only">
-                    <span>👨‍👩‍👦 Família</span>
-                  </label>
-                  <label class="border border-slate-200 rounded-xl p-2.5 text-center cursor-pointer hover:border-sky-500 has-[:checked]:border-sky-600 has-[:checked]:bg-sky-50/60 transition text-xs font-semibold">
-                    <input type="radio" name="hero_type" value="empresa" class="sr-only">
-                    <span>🏢 Empresa</span>
-                  </label>
-                </div>
-              </div>
-
-              <div>
-                <label class="block text-xs font-bold text-slate-700 mb-1.5">Sua faixa etária principal:</label>
-                <select class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-800 font-medium focus:ring-2 focus:ring-sky-500 focus:outline-none">
-                  <option value="0-18">Até 18 anos</option>
-                  <option value="19-23">19 a 23 anos</option>
-                  <option value="24-28" selected>24 a 28 anos</option>
-                  <option value="29-33">29 a 33 anos</option>
-                  <option value="34-38">34 a 38 anos</option>
-                  <option value="39-43">39 a 43 anos</option>
-                  <option value="44-48">44 a 48 anos</option>
-                  <option value="49-53">49 a 53 anos</option>
-                  <option value="54-58">54 a 58 anos</option>
-                  <option value="59+">59 anos ou mais</option>
-                </select>
-              </div>
-
-              <div>
-                <label class="block text-xs font-bold text-slate-700 mb-1.5">Seu CEP ou Cidade:</label>
-                <input type="text" placeholder="Ex: 01310-100 ou São Paulo" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-800 focus:ring-2 focus:ring-sky-500 focus:outline-none">
-              </div>
-
-              <button type="submit" class="w-full py-3 bg-gradient-to-r from-sky-600 to-teal-600 hover:from-sky-700 hover:to-teal-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-md transition">
-                Ver Planos e Valores Disponíveis
-              </button>
-
-              <div class="flex items-center justify-center gap-2 text-[11px] text-slate-500 pt-1">
-                <svg class="w-3.5 h-3.5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                Sem compromisso • Resposta imediata
-              </div>
-            </form>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       FAIXA DE DIFERENCIAIS EM DESTAQUE
-       ========================================================================== -->
-  <section id="diferenciais" class="py-12 bg-white border-y border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center sm:text-left">
-        
-        <div class="flex flex-col sm:flex-row items-center gap-3">
-          <div class="w-12 h-12 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center flex-shrink-0 text-xl font-bold">
-            📱
-          </div>
-          <div>
-            <h4 class="text-sm font-bold text-slate-900">Telemedicina 24h</h4>
-            <p class="text-xs text-slate-500 mt-0.5">Sem fila de espera, direto no celular</p>
-          </div>
-        </div>
-
-        <div class="flex flex-col sm:flex-row items-center gap-3">
-          <div class="w-12 h-12 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center flex-shrink-0 text-xl font-bold">
-            🏥
-          </div>
-          <div>
-            <h4 class="text-sm font-bold text-slate-900">Hospitais de Ponta</h4>
-            <p class="text-xs text-slate-500 mt-0.5">Einstein, Sírio, Samaritano e D'Or</p>
-          </div>
-        </div>
-
-        <div class="flex flex-col sm:flex-row items-center gap-3">
-          <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0 text-xl font-bold">
-            💊
-          </div>
-          <div>
-            <h4 class="text-sm font-bold text-slate-900">Até 70% em Farmácias</h4>
-            <p class="text-xs text-slate-500 mt-0.5">Drogasil, Raia, Pague Menos e Pacheco</p>
-          </div>
-        </div>
-
-        <div class="flex flex-col sm:flex-row items-center gap-3">
-          <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center flex-shrink-0 text-xl font-bold">
-            ⚡
-          </div>
-          <div>
-            <h4 class="text-sm font-bold text-slate-900">Reembolso via PIX</h4>
-            <p class="text-xs text-slate-500 mt-0.5">Aprovação expressa em até 48 horas</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       VITRINE DE PLANOS COM ALTERNÂNCIA DE COPARTICIPAÇÃO
-       ========================================================================== -->
-  <section id="planos" class="py-20 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- HERO SECTION LIMPA & DIRETA -->
+  <section class="py-16 md:py-24 bg-gradient-to-b from-sky-50/70 via-white to-slate-50 relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center space-y-6">
       
-      <div class="text-center max-w-3xl mx-auto space-y-3">
-        <span class="text-xs font-bold uppercase tracking-widest text-sky-600 bg-sky-100/70 px-3 py-1 rounded-full">
-          Transparência & Cuidado
-        </span>
-        <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">
-          Planos desenhados para cada momento da sua vida
-        </h2>
-        <p class="text-sm text-slate-600">
-          Escolha entre planos com ou sem coparticipação inteligente e personalize de acordo com sua necessidade.
-        </p>
-
-        <!-- Seletor de Categoria (Tabs) -->
-        <div class="pt-4 flex flex-wrap items-center justify-center gap-2">
-          <button class="plan-category-tab active px-4 py-2 rounded-xl text-xs font-bold bg-sky-600 text-white shadow-md transition" data-category="individual">
-            Para Você & Família
-          </button>
-          <button class="plan-category-tab px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-category="pme">
-            PME (2 a 29 vidas)
-          </button>
-          <button class="plan-category-tab px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-category="corporate">
-            Corporativo (30+ vidas)
-          </button>
-          <button class="plan-category-tab px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-category="senior">
-            AmCOn 60+ Sênior
-          </button>
-        </div>
-
-        <!-- Switch Coparticipação -->
-        <div class="pt-4 flex items-center justify-center gap-3">
-          <span id="label-with-copay" class="text-xs font-bold text-sky-900">Com Coparticipação (-30% no valor mensal)</span>
-          <label class="relative inline-flex items-center cursor-pointer">
-            <input type="checkbox" id="copay-toggle" class="sr-only peer">
-            <div class="w-11 h-6 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-sky-600"></div>
-          </label>
-          <span id="label-without-copay" class="text-xs font-semibold text-slate-500">Sem Coparticipação</span>
-        </div>
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-100/80 border border-sky-200 text-sky-800 text-xs font-bold">
+        <span>✨</span> Planos de Saúde com Telemedicina 24h & Reembolso Fácil
       </div>
 
-      <!-- Grid de Cards de Planos -->
-      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-        
-        <!-- Plano 1: Essencial -->
-        <div class="bg-white rounded-3xl p-7 border border-slate-200 hover:border-slate-300 shadow-sm flex flex-col justify-between transition-all">
-          <div>
-            <div class="flex justify-between items-center">
-              <span class="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-2.5 py-1 rounded-full">
-                Regional Cuidado
-              </span>
-              <span class="text-xs text-slate-400">Enfermaria</span>
-            </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+        A proteção que você precisa, com a <span class="text-gradient">simplicidade</span> que você merece.
+      </h1>
 
-            <h3 class="text-xl font-extrabold text-slate-900 mt-4">AmCOn Essencial</h3>
-            <p class="plan-audience-tag text-xs text-slate-500 mt-1">Cobertura completa para você e dependentes</p>
+      <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+        Uma experiência de saúde moderna e acessível. Consulte com médicos online a qualquer hora, encontre clínicas parceiras e tire dúvidas instantaneamente pelo chat.
+      </p>
 
-            <div class="mt-5 pb-5 border-b border-slate-100">
-              <div class="flex items-baseline gap-1">
-                <span class="text-xs text-slate-500">A partir de</span>
-                <span id="price-essencial" class="text-3xl font-black text-slate-900">R$ 189,00</span>
-                <span class="text-xs text-slate-500">/mês</span>
-              </div>
-              <p class="text-[11px] text-teal-600 font-semibold mt-1">Ótimo custo-benefício regional</p>
-            </div>
-
-            <!-- Benefícios -->
-            <ul class="mt-6 space-y-3 text-xs text-slate-600">
-              <li class="flex items-center gap-2">
-                <span class="text-teal-600 font-bold">✓</span> Cobertura Ambulatorial + Hospitalar c/ Obstetrícia
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="text-teal-600 font-bold">✓</span> Telemedicina 24h ilimitada sem carência
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="text-teal-600 font-bold">✓</span> Centros médicos próprios e clínicas credenciadas
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="text-teal-600 font-bold">✓</span> Desconto de até 70% em medicamentos
-              </li>
-              <li class="flex items-center gap-2 text-slate-400 line-through">
-                <span>✕</span> Reembolso de consultas fora da rede
-              </li>
-            </ul>
-          </div>
-
-          <div class="mt-8 pt-4 border-t border-slate-100 space-y-2">
-            <button onclick="document.dispatchEvent(new CustomEvent('openAmCOnChat', {detail: {flow: 'flow_cotacao', value: 'Plano AmCOn Essencial'}}))" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition">
-              Contratar ou Simular
-            </button>
-          </div>
-        </div>
-
-        <!-- Plano 2: Conforto Plus (Mais Escolhido) -->
-        <div class="bg-white rounded-3xl p-7 border-2 border-sky-500 shadow-xl shadow-sky-500/10 flex flex-col justify-between relative transform md:-translate-y-2 transition-all">
-          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-sky-600 to-teal-500 text-white text-[11px] font-extrabold uppercase px-4 py-1 rounded-full shadow-md">
-            Mais Escolhido • Campeão de Vendas
-          </div>
-
-          <div>
-            <div class="flex justify-between items-center mt-2">
-              <span class="text-xs font-bold uppercase tracking-wider text-sky-700 bg-sky-50 px-2.5 py-1 rounded-full">
-                Nacional Completo
-              </span>
-              <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded">Apartamento Individual</span>
-            </div>
-
-            <h3 class="text-xl font-extrabold text-slate-900 mt-4">AmCOn Conforto Plus</h3>
-            <p class="plan-audience-tag text-xs text-slate-500 mt-1">Cobertura completa para você e dependentes</p>
-
-            <div class="mt-5 pb-5 border-b border-slate-100">
-              <div class="flex items-baseline gap-1">
-                <span class="text-xs text-slate-500">A partir de</span>
-                <span id="price-conforto" class="text-3xl font-black text-sky-600">R$ 299,90</span>
-                <span class="text-xs text-slate-500">/mês</span>
-              </div>
-              <p class="text-[11px] text-sky-600 font-semibold mt-1">Quarto privativo + Reembolso garantido</p>
-            </div>
-
-            <!-- Benefícios -->
-            <ul class="mt-6 space-y-3 text-xs text-slate-700 font-medium">
-              <li class="flex items-center gap-2">
-                <span class="text-sky-600 font-bold">✓</span> <strong>Cobertura Nacional Total</strong>
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="text-sky-600 font-bold">✓</span> <strong>Acomodação Apartamento Privativo</strong>
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="text-sky-600 font-bold">✓</span> Hospitais de Referência (Samaritano, Oswaldo Cruz, D'Or)
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="text-sky-600 font-bold">✓</span> Reembolso de até R$ 250 por consulta em 48h
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="text-sky-600 font-bold">✓</span> Telemedicina 24h com médicos especialistas
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="text-sky-600 font-bold">✓</span> Coleta domiciliar de exames laboratoriais
-              </li>
-            </ul>
-          </div>
-
-          <div class="mt-8 pt-4 border-t border-slate-100 space-y-2">
-            <button onclick="document.dispatchEvent(new CustomEvent('openAmCOnChat', {detail: {flow: 'flow_cotacao', value: 'Plano AmCOn Conforto Plus'}}))" class="w-full py-3 rounded-xl bg-gradient-to-r from-sky-600 to-sky-700 hover:from-sky-700 hover:to-sky-800 text-white text-xs font-extrabold shadow-md shadow-sky-600/30 transition">
-              Quero Este Plano
-            </button>
-          </div>
-        </div>
-
-        <!-- Plano 3: Exclusivo Black -->
-        <div class="bg-white rounded-3xl p-7 border border-slate-200 hover:border-slate-300 shadow-sm flex flex-col justify-between transition-all">
-          <div>
-            <div class="flex justify-between items-center">
-              <span class="text-xs font-bold uppercase tracking-wider text-slate-800 bg-slate-100 px-2.5 py-1 rounded-full font-mono">
-                Premium Concierge
-              </span>
-              <span class="text-xs text-slate-400">Suíte Master</span>
-            </div>
-
-            <h3 class="text-xl font-extrabold text-slate-900 mt-4">AmCOn Exclusivo Black</h3>
-            <p class="plan-audience-tag text-xs text-slate-500 mt-1">Cobertura completa para você e dependentes</p>
-
-            <div class="mt-5 pb-5 border-b border-slate-100">
-              <div class="flex items-baseline gap-1">
-                <span class="text-xs text-slate-500">A partir de</span>
-                <span id="price-exclusivo" class="text-3xl font-black text-slate-900">R$ 680,00</span>
-                <span class="text-xs text-slate-500">/mês</span>
-              </div>
-              <p class="text-[11px] text-slate-600 font-semibold mt-1">Einstein, Sírio-Libanês e Seguro Viagem Internacional</p>
-            </div>
-
-            <!-- Benefícios -->
-            <ul class="mt-6 space-y-3 text-xs text-slate-600">
-              <li class="flex items-center gap-2">
-                <span class="text-slate-900 font-bold">✓</span> Hospitais Albert Einstein e Sírio-Libanês
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="text-slate-900 font-bold">✓</span> Laboratórios Fleury e Alta Diagnósticos
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="text-slate-900 font-bold">✓</span> Reembolso premium até R$ 850 por consulta
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="text-slate-900 font-bold">✓</span> Concierge de Saúde dedicado para agendamentos VIP
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="text-slate-900 font-bold">✓</span> Cobertura de viagem internacional US$ 100.000
-              </li>
-            </ul>
-          </div>
-
-          <div class="mt-8 pt-4 border-t border-slate-100 space-y-2">
-            <button onclick="document.dispatchEvent(new CustomEvent('openAmCOnChat', {detail: {flow: 'flow_cotacao', value: 'Plano AmCOn Exclusivo Black'}}))" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition">
-              Contratar Exclusivo
-            </button>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Add-on Dental & Benefícios Adicionais -->
-      <div class="mt-10 bg-gradient-to-r from-sky-900 to-slate-900 rounded-3xl p-6 sm:p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
-        <div class="space-y-1 text-center md:text-left">
-          <span class="text-[10px] font-bold uppercase tracking-wider text-teal-400 bg-teal-900/50 px-2 py-0.5 rounded">Opcional Integrado</span>
-          <h4 class="text-lg font-bold text-white">Adicione Plano Odontológico Completo por apenas R$ 29,90/mês</h4>
-          <p class="text-xs text-slate-300">Consultas, limpezas, tratamentos de canal, restaurações e urgência dental 24h sem carência.</p>
-        </div>
-        <button onclick="document.dispatchEvent(new CustomEvent('openAmCOnChat', {detail: {flow: 'flow_cotacao', value: 'Plano Odontológico Dental'}}))" class="px-6 py-2.5 bg-teal-500 hover:bg-teal-400 text-slate-900 font-extrabold text-xs rounded-xl shadow-md transition whitespace-nowrap">
-          Incluir Dental na Simulação
+      <!-- Botões de Ação do Hero -->
+      <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="#planos" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs shadow-lg shadow-sky-600/25 transition">
+          Ver Tabela de Planos Fictícios
+        </a>
+        <button onclick="document.dispatchEvent(new CustomEvent('openAmCOnChat', {detail: {flow: 'flow_cotacao'}}))" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs border border-slate-300 shadow-sm transition flex items-center justify-center gap-2">
+          <span>🩺</span> Simular no Chatbot
         </button>
       </div>
 
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       BUSCA INTERATIVA NA REDE CREDENCIADA
-       ========================================================================== -->
-  <section id="rede" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-2xl mx-auto space-y-2">
-        <span class="text-xs font-bold uppercase tracking-widest text-sky-600 bg-sky-50 px-3 py-1 rounded-full">
-          Onde Você Estiver
-        </span>
-        <h2 class="text-3xl font-extrabold text-slate-900">
-          Encontre médicos, hospitais e laboratórios
-        </h2>
-        <p class="text-xs sm:text-sm text-slate-500">
-          Consulte nossa rede credenciada de excelência em todo o país com busca em tempo real.
-        </p>
-      </div>
-
-      <!-- Painel de Filtros da Rede -->
-      <div class="mt-8 bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-6 shadow-sm">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
-          
-          <div class="md:col-span-5 relative">
-            <input type="text" id="network-search-input" placeholder="Buscar por hospital, clínica, bairro ou médico..." class="w-full bg-white border border-slate-300 rounded-xl pl-9 pr-4 py-2.5 text-xs text-slate-800 focus:ring-2 focus:ring-sky-500 focus:outline-none">
-            <svg class="w-4 h-4 text-slate-400 absolute left-3 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-          </div>
-
-          <div class="md:col-span-3">
-            <select id="network-type-filter" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-xs text-slate-800 font-medium focus:ring-2 focus:ring-sky-500 focus:outline-none">
-              <option value="all">Todos os Estabelecimentos</option>
-              <option value="hospital">Hospitais & Prontos-Socorros</option>
-              <option value="clinica">Clínicas Médicas & Consultórios</option>
-              <option value="laboratorio">Laboratórios & Imagem</option>
-            </select>
-          </div>
-
-          <div class="md:col-span-3">
-            <select id="network-specialty-filter" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-xs text-slate-800 font-medium focus:ring-2 focus:ring-sky-500 focus:outline-none">
-              <option value="all">Todas as Especialidades</option>
-              <option value="Cardiologia">Cardiologia</option>
-              <option value="Ortopedia">Ortopedia</option>
-              <option value="Pediatria">Pediatria</option>
-              <option value="Ginecologia">Ginecologia & Obstetrícia</option>
-              <option value="Dermatologia">Dermatologia</option>
-              <option value="Oftalmologia">Oftalmologia</option>
-            </select>
-          </div>
-
-          <div class="md:col-span-1 text-center md:text-right">
-            <span id="network-results-count" class="text-[11px] font-bold text-sky-700 whitespace-nowrap block">
-              --
-            </span>
-          </div>
-
+      <!-- Métricas Fictícias Simples -->
+      <div class="pt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto text-left">
+        <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm">
+          <strong class="text-xl font-black text-slate-900 block">+15 mil</strong>
+          <span class="text-xs text-slate-500">Vidas simuladas</span>
         </div>
-      </div>
-
-      <!-- Resultados da Rede Credenciada -->
-      <div id="network-results-container" class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        <!-- Itens inseridos dinamicamente pelo JavaScript (app.js) -->
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SEÇÃO TELEMEDICINA 24/7 COM DEMONSTRAÇÃO
-       ========================================================================== -->
-  <section id="telemedicina" class="py-20 bg-gradient-to-b from-slate-900 to-brand-dark text-white relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
-        <div class="lg:col-span-6 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/20 border border-teal-500/30 text-teal-300 text-xs font-semibold">
-            <span class="w-2 h-2 rounded-full bg-teal-400 animate-ping"></span>
-            Pronto-Socorro Digital Ilimitado
-          </div>
-
-          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight">
-            Consulte com médicos de plantão em menos de <span class="text-teal-400">5 minutos</span>, sem sair de casa.
-          </h2>
-
-          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-            Esqueça as salas de espera lotadas. Pelo smartphone ou computador, você tem acesso 24 horas por dia a clínicos gerais, pediatras e especialistas com emissão de receitas válidas em farmácias e atestados com certificação ICP-Brasil.
-          </p>
-
-          <div class="grid grid-cols-2 gap-4 pt-2">
-            <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
-              <span class="text-2xl font-black text-teal-400 block">&lt; 4 min</span>
-              <span class="text-xs text-slate-300">Tempo médio de espera</span>
-            </div>
-            <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
-              <span class="text-2xl font-black text-sky-400 block">100% Válida</span>
-              <span class="text-xs text-slate-300">Receita digital aceita em todo país</span>
-            </div>
-          </div>
-
-          <div class="pt-4 flex flex-col sm:flex-row gap-3">
-            <button onclick="document.dispatchEvent(new CustomEvent('openAmCOnChat', {detail: {flow: 'flow_telemedicina'}}))" class="px-6 py-3.5 bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 text-slate-900 font-extrabold text-xs rounded-xl shadow-lg transition flex items-center justify-center gap-2">
-              <svg class="w-4 h-4 text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-              Iniciar Triagem Médica Agora
-            </button>
-            <a href="#rede" class="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs rounded-xl border border-white/20 transition text-center">
-              Ver Especialidades da Telemedicina
-            </a>
-          </div>
+        <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm">
+          <strong class="text-xl font-black text-emerald-600 block">&lt; 5 min</strong>
+          <span class="text-xs text-slate-500">Fila na telemedicina</span>
         </div>
-
-        <!-- Mockup Visual da Teleconsulta -->
-        <div class="lg:col-span-6">
-          <div class="relative max-w-md mx-auto bg-slate-800 rounded-3xl p-3 border border-slate-700 shadow-2xl">
-            <!-- Tela do Celular / Chamada de Vídeo -->
-            <div class="bg-slate-950 rounded-[20px] overflow-hidden relative aspect-[9/14] flex flex-col justify-between p-4">
-              
-              <!-- Header da Chamada -->
-              <div class="flex justify-between items-center z-10 bg-slate-900/80 backdrop-blur-md p-3 rounded-xl border border-white/10">
-                <div class="flex items-center gap-2.5">
-                  <div class="w-8 h-8 rounded-full bg-teal-500 text-slate-900 flex items-center justify-center font-bold text-xs">
-                    MD
-                  </div>
-                  <div>
-                    <h5 class="text-xs font-bold text-white">Dr. Felipe Arantes</h5>
-                    <p class="text-[10px] text-teal-300">Clínico Geral • CRM 149.882-SP</p>
-                  </div>
-                </div>
-                <span class="text-[10px] bg-red-600 text-white font-mono px-2 py-0.5 rounded-full flex items-center gap-1">
-                  <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span> 04:12
-                </span>
-              </div>
-
-              <!-- Simulação de Vídeo do Médico -->
-              <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-slate-900/30 via-slate-800 to-slate-950">
-                <div class="text-center p-6">
-                  <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-teal-500 to-sky-600 mx-auto flex items-center justify-center text-4xl shadow-lg border-2 border-white/20">
-                    👨‍⚕️
-                  </div>
-                  <h4 class="text-sm font-bold text-white mt-3">Consulta em Andamento</h4>
-                  <p class="text-xs text-slate-400 mt-1">Conexão Criptografada P2P • Áudio & Vídeo HD</p>
-                </div>
-              </div>
-
-              <!-- Miniatura do Paciente -->
-              <div class="self-end w-24 h-32 bg-slate-800 rounded-xl border border-white/20 shadow-md relative overflow-hidden flex items-center justify-center z-10">
-                <span class="text-2xl">👤</span>
-                <span class="absolute bottom-1 right-1 text-[9px] bg-black/60 px-1 rounded text-white">Você</span>
-              </div>
-
-              <!-- Botões da Chamada -->
-              <div class="flex items-center justify-center gap-4 z-10 pt-3">
-                <button class="w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/30">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
-                </button>
-                <button class="w-12 h-12 rounded-full bg-red-600 text-white flex items-center justify-center shadow-lg hover:bg-red-700">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.684A1 1 0 008.279 3H5z"></path></svg>
-                </button>
-                <button onclick="document.dispatchEvent(new CustomEvent('openAmCOnChat', {detail: {flow: 'flow_telemedicina'}}))" class="w-10 h-10 rounded-full bg-teal-500 text-slate-900 flex items-center justify-center hover:bg-teal-400 font-bold">
-                  💬
-                </button>
-              </div>
-
-            </div>
-          </div>
+        <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm">
+          <strong class="text-xl font-black text-sky-600 block">250+</strong>
+          <span class="text-xs text-slate-500">Clínicas no catálogo</span>
         </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SIMULADOR PASSO A PASSO (WIZARD DE COTAÇÃO)
-       ========================================================================== -->
-  <section id="simulador" class="py-20 bg-slate-50">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center space-y-2 mb-10">
-        <span class="text-xs font-bold uppercase tracking-widest text-sky-600 bg-sky-100/70 px-3 py-1 rounded-full">
-          Calculadora Interativa
-        </span>
-        <h2 class="text-3xl font-extrabold text-slate-900">
-          Simule o valor exato do seu plano
-        </h2>
-        <p class="text-xs sm:text-sm text-slate-500">
-          Adicione seus dependentes e escolha o tipo de acomodação para calcular na hora.
-        </p>
-      </div>
-
-      <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl">
-        <div class="space-y-8">
-          
-          <!-- Passo 1: Beneficiários -->
-          <div>
-            <h4 class="text-sm font-bold text-slate-800 flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-sky-600 text-white flex items-center justify-center text-xs">1</span>
-              Quem participará do plano?
-            </h4>
-
-            <div class="mt-4 flex flex-wrap gap-2 items-center" id="simulator-beneficiary-list">
-              <!-- Inserido dinamicamente pelo JavaScript -->
-            </div>
-
-            <div class="mt-4 flex items-center gap-3">
-              <select id="beneficiary-age-select" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-sky-500">
-                <option value="0-18">Adicionar: 0 a 18 anos</option>
-                <option value="19-23">Adicionar: 19 a 23 anos</option>
-                <option value="24-28">Adicionar: 24 a 28 anos</option>
-                <option value="29-33">Adicionar: 29 a 33 anos</option>
-                <option value="34-38">Adicionar: 34 a 38 anos</option>
-                <option value="39-43">Adicionar: 39 a 43 anos</option>
-                <option value="44-48">Adicionar: 44 a 48 anos</option>
-                <option value="49-53">Adicionar: 49 a 53 anos</option>
-                <option value="54-58">Adicionar: 54 a 58 anos</option>
-                <option value="59+">Adicionar: 59 anos ou mais</option>
-              </select>
-
-              <button type="button" id="add-beneficiary-btn" class="px-4 py-2 bg-sky-50 text-sky-700 hover:bg-sky-100 border border-sky-200 rounded-xl text-xs font-bold transition flex items-center gap-1.5">
-                <span>+</span> Adicionar Pessoa
-              </button>
-            </div>
-          </div>
-
-          <!-- Passo 2: Acomodação -->
-          <div class="pt-6 border-t border-slate-100">
-            <h4 class="text-sm font-bold text-slate-800 flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-sky-600 text-white flex items-center justify-center text-xs">2</span>
-              Qual tipo de acomodação hospitalar prefere?
-            </h4>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
-              <label class="border-2 border-slate-200 rounded-2xl p-4 cursor-pointer hover:border-sky-500 has-[:checked]:border-sky-600 has-[:checked]:bg-sky-50/50 transition flex items-start gap-3">
-                <input type="radio" name="sim_accomodation" value="apartamento" class="mt-1" checked>
-                <div>
-                  <strong class="text-xs font-bold text-slate-900 block">Apartamento Individual (Recomendado)</strong>
-                  <span class="text-[11px] text-slate-500 mt-0.5 block">Privacidade total com direito a acompanhante 24h sem restrição de horário.</span>
-                </div>
-              </label>
-
-              <label class="border-2 border-slate-200 rounded-2xl p-4 cursor-pointer hover:border-sky-500 has-[:checked]:border-sky-600 has-[:checked]:bg-sky-50/50 transition flex items-start gap-3">
-                <input type="radio" name="sim_accomodation" value="enfermaria" class="mt-1">
-                <div>
-                  <strong class="text-xs font-bold text-slate-900 block">Enfermaria Coletiva</strong>
-                  <span class="text-[11px] text-slate-500 mt-0.5 block">Quarto compartilhado (até 2 a 3 pacientes), máxima economia na mensalidade.</span>
-                </div>
-              </label>
-            </div>
-          </div>
-
-          <!-- Resultado Instantâneo do Cálculo -->
-          <div id="simulator-result-box" class="pt-6 border-t border-slate-100 bg-gradient-to-r from-sky-50 to-teal-50 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 p-6 sm:p-8 rounded-b-3xl">
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
-              <div>
-                <span class="text-xs font-bold uppercase tracking-wider text-sky-800">Valor Estimado do Grupo:</span>
-                <div class="flex items-baseline gap-2 mt-1">
-                  <span id="sim-calculated-total" class="text-3xl sm:text-4xl font-black text-slate-900">R$ 299,90</span>
-                  <span class="text-xs text-slate-600 font-medium">/mês total</span>
-                </div>
-                <p id="sim-calculated-per-person" class="text-xs text-teal-800 font-semibold mt-1">
-                  Média de R$ 299,90 por pessoa/mês
-                </p>
-              </div>
-
-              <div class="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
-                <button onclick="document.dispatchEvent(new CustomEvent('openAmCOnChat', {detail: {flow: 'flow_cotacao', value: 'Quero formalizar a simulação feita no site'}}))" class="px-6 py-3 bg-sky-600 hover:bg-sky-700 text-white font-extrabold text-xs rounded-xl shadow-md transition flex items-center justify-center gap-2">
-                  <span>💬</span> Formalizar Proposta no Chat
-                </button>
-              </div>
-            </div>
-          </div>
-
+        <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm">
+          <strong class="text-xl font-black text-amber-500 block">4.9 ★</strong>
+          <span class="text-xs text-slate-500">Avaliação fictícia</span>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ==========================================================================
-       DEPOIMENTOS & AVALIAÇÕES
-       ========================================================================== -->
-  <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- SEÇÃO DE PLANOS & PREÇOS (DADOS FICTÍCIOS) -->
+  <section id="planos" class="py-16 bg-white border-t border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
       
       <div class="text-center max-w-2xl mx-auto space-y-2 mb-12">
-        <span class="text-xs font-bold uppercase tracking-widest text-sky-600 bg-sky-50 px-3 py-1 rounded-full">
-          Histórias Reais
+        <span class="text-xs font-bold uppercase tracking-wider text-sky-600 bg-sky-50 px-3 py-1 rounded-full">
+          Valores Fictícios
         </span>
-        <h2 class="text-3xl font-extrabold text-slate-900">
-          O que dizem quem já conta com a AmCOn
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
-          <div class="flex items-center text-amber-400 text-sm">★★★★★</div>
-          <p class="text-xs text-slate-600 leading-relaxed italic">
-            "A telemedicina da AmCOn me salvou em um sábado à noite com meu filho com febre alta. Fomos atendidos em 3 minutos pela Dra. Mariana, que receitou a medicação e já enviou a receita digital."
-          </p>
-          <div class="pt-3 border-t border-slate-200 flex items-center gap-3">
-            <div class="w-9 h-9 rounded-full bg-sky-600 text-white flex items-center justify-center font-bold text-xs">
-              BC
-            </div>
-            <div>
-              <strong class="text-xs font-bold text-slate-800 block">Beatriz Carvalho</strong>
-              <span class="text-[10px] text-slate-500">Plano AmCOn Conforto Família • São Paulo</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
-          <div class="flex items-center text-amber-400 text-sm">★★★★★</div>
-          <p class="text-xs text-slate-600 leading-relaxed italic">
-            "Migramos o plano da nossa empresa de 45 colaboradores para a AmCOn Saúde. Reduzimos o custo da folha em 22% mantendo os mesmos hospitais de ponta e com um portal de RH impecável."
-          </p>
-          <div class="pt-3 border-t border-slate-200 flex items-center gap-3">
-            <div class="w-9 h-9 rounded-full bg-teal-600 text-white flex items-center justify-center font-bold text-xs">
-              RM
-            </div>
-            <div>
-              <strong class="text-xs font-bold text-slate-800 block">Rodrigo Meneses</strong>
-              <span class="text-[10px] text-slate-500">Diretor de Gente & Gestão • TechSolutions</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
-          <div class="flex items-center text-amber-400 text-sm">★★★★★</div>
-          <p class="text-xs text-slate-600 leading-relaxed italic">
-            "O reembolso pelo app funciona exatamente como prometido: enviei a nota fiscal de uma consulta no domingo e na terça-feira de manhã o Pix já estava na minha conta. Nunca vi nada tão ágil."
-          </p>
-          <div class="pt-3 border-t border-slate-200 flex items-center gap-3">
-            <div class="w-9 h-9 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-xs">
-              GL
-            </div>
-            <div>
-              <strong class="text-xs font-bold text-slate-800 block">Gustavo Lacerda</strong>
-              <span class="text-[10px] text-slate-500">Plano AmCOn Exclusivo Black • Campinas</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       FAQ COM ACORDEÃO E PESQUISA INSTANTÂNEA
-       ========================================================================== -->
-  <section id="faq" class="py-20 bg-slate-50">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center space-y-2 mb-8">
-        <span class="text-xs font-bold uppercase tracking-widest text-sky-600 bg-sky-100/70 px-3 py-1 rounded-full">
-          Tire Suas Dúvidas
-        </span>
-        <h2 class="text-3xl font-extrabold text-slate-900">
-          Perguntas Frequentes
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
+          Escolha o plano ideal para seu momento
         </h2>
         <p class="text-xs sm:text-sm text-slate-500">
-          Encontre respostas para as principais dúvidas sobre carências, contratação e coberturas.
+          Valores mensais simulados para demonstração do front-end e fluxo de contratação.
         </p>
-
-        <!-- Campo de Pesquisa no FAQ -->
-        <div class="pt-4 max-w-md mx-auto">
-          <input type="text" id="faq-search-input" placeholder="Pesquisar por carência, portabilidade, reembolso..." class="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-xs text-slate-800 focus:ring-2 focus:ring-sky-500 focus:outline-none shadow-sm">
-        </div>
       </div>
 
-      <div class="space-y-3">
+      <!-- 3 Cards de Planos Limpos -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
         
-        <div class="faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
-          <button class="faq-question-btn w-full p-4 sm:p-5 text-left flex justify-between items-center text-xs sm:text-sm font-bold text-slate-800 hover:text-sky-600 transition">
-            <span>Como funciona o período de carência nos planos AmCOn?</span>
-            <svg class="faq-chevron w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-          </button>
-          <div class="faq-answer hidden px-4 sm:px-5 pb-5 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-            Para urgências e emergências hospitalares, a cobertura é liberada em apenas 24 horas após a vigência. Em campanhas promocionais e portabilidades, consultas simples e exames laboratoriais contam com <strong>Carência Zero</strong>. Demais procedimentos seguem os prazos normativos regulamentados pela ANS.
+        <!-- Plano 1: Essencial -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-slate-300 shadow-sm flex flex-col justify-between transition">
+          <div>
+            <div class="flex justify-between items-center">
+              <span class="text-xs font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded">Individual</span>
+              <span class="text-[11px] text-slate-400">Enfermaria</span>
+            </div>
+            
+            <h3 class="text-lg font-bold text-slate-900 mt-3">AmCOn Essencial</h3>
+            <p class="text-xs text-slate-500 mt-0.5">Para quem quer economia e cobertura básica de qualidade.</p>
+
+            <div class="mt-4 pb-4 border-b border-slate-100">
+              <span class="text-xs text-slate-400">A partir de</span>
+              <div class="text-3xl font-black text-slate-900 mt-0.5">
+                R$ 149,90 <span class="text-xs font-normal text-slate-500">/mês</span>
+              </div>
+            </div>
+
+            <ul class="mt-4 space-y-2.5 text-xs text-slate-600">
+              <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Consultas com clínico geral</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Exames laboratoriais de rotina</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Telemedicina 24h ilimitada</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Desconto de até 40% em remédios</li>
+            </ul>
           </div>
+
+          <button onclick="document.dispatchEvent(new CustomEvent('openAmCOnChat', {detail: {flow: 'flow_cotacao', value: 'Plano AmCOn Essencial (R$ 149,90)'}}))" class="mt-6 w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl transition">
+            Simular Este Plano
+          </button>
         </div>
 
-        <div class="faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
-          <button class="faq-question-btn w-full p-4 sm:p-5 text-left flex justify-between items-center text-xs sm:text-sm font-bold text-slate-800 hover:text-sky-600 transition">
-            <span>Posso fazer a portabilidade mantendo minhas carências cumpridas?</span>
-            <svg class="faq-chevron w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-          </button>
-          <div class="faq-answer hidden px-4 sm:px-5 pb-5 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-            Sim! Conforme a Resolução Normativa nº 438 da ANS, beneficiários com mais de 2 anos no plano anterior podem migrar para a AmCOn Saúde com isenção total de carências para procedimentos já cumpridos no plano de origem.
+        <!-- Plano 2: Família (Destaque) -->
+        <div class="bg-white rounded-2xl p-6 border-2 border-sky-500 shadow-lg shadow-sky-500/10 flex flex-col justify-between relative transform md:-translate-y-1 transition">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-sky-600 text-white text-[10px] font-extrabold uppercase px-3 py-0.5 rounded-full">
+            Mais Escolhido
           </div>
+
+          <div>
+            <div class="flex justify-between items-center mt-1">
+              <span class="text-xs font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded">Familiar</span>
+              <span class="text-[11px] font-bold text-sky-600">Apartamento</span>
+            </div>
+            
+            <h3 class="text-lg font-bold text-slate-900 mt-3">AmCOn Família Mais</h3>
+            <p class="text-xs text-slate-500 mt-0.5">Cuidado completo para você, cônjuge e dependentes.</p>
+
+            <div class="mt-4 pb-4 border-b border-slate-100">
+              <span class="text-xs text-slate-400">A partir de</span>
+              <div class="text-3xl font-black text-sky-600 mt-0.5">
+                R$ 289,90 <span class="text-xs font-normal text-slate-500">/mês</span>
+              </div>
+            </div>
+
+            <ul class="mt-4 space-y-2.5 text-xs text-slate-700 font-medium">
+              <li class="flex items-center gap-2"><span class="text-sky-600 font-bold">✓</span> Todas as especialidades médicas</li>
+              <li class="flex items-center gap-2"><span class="text-sky-600 font-bold">✓</span> Exames de imagem (Raio-X, Ultrassom)</li>
+              <li class="flex items-center gap-2"><span class="text-sky-600 font-bold">✓</span> Internação em Quarto Privativo</li>
+              <li class="flex items-center gap-2"><span class="text-sky-600 font-bold">✓</span> Pediatria & Obstetrícia completa</li>
+              <li class="flex items-center gap-2"><span class="text-sky-600 font-bold">✓</span> Desconto progressivo por dependente</li>
+            </ul>
+          </div>
+
+          <button onclick="document.dispatchEvent(new CustomEvent('openAmCOnChat', {detail: {flow: 'flow_cotacao', value: 'Plano AmCOn Família Mais (R$ 289,90)'}}))" class="mt-6 w-full py-2.5 bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold rounded-xl shadow-md shadow-sky-600/30 transition">
+            Simular Este Plano
+          </button>
         </div>
 
-        <div class="faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
-          <button class="faq-question-btn w-full p-4 sm:p-5 text-left flex justify-between items-center text-xs sm:text-sm font-bold text-slate-800 hover:text-sky-600 transition">
-            <span>Como solicito reembolso de consultas e exames fora da rede?</span>
-            <svg class="faq-chevron w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-          </button>
-          <div class="faq-answer hidden px-4 sm:px-5 pb-5 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-            O processo é 100% digital pelo nosso aplicativo ou pelo chat com a Dra. Sofia. Basta fotografar a nota fiscal com o CRM do médico e o comprovante de pagamento. A análise ocorre em até 2 dias úteis e o crédito é depositado diretamente na sua chave Pix cadastrada.
-          </div>
-        </div>
+        <!-- Plano 3: Premium -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-slate-300 shadow-sm flex flex-col justify-between transition">
+          <div>
+            <div class="flex justify-between items-center">
+              <span class="text-xs font-bold text-slate-800 bg-slate-100 px-2 py-0.5 rounded">Executivo</span>
+              <span class="text-[11px] text-slate-400">Nacional VIP</span>
+            </div>
+            
+            <h3 class="text-lg font-bold text-slate-900 mt-3">AmCOn Premium Black</h3>
+            <p class="text-xs text-slate-500 mt-0.5">Hospitais de referência nacional e reembolso ágil.</p>
 
-        <div class="faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
-          <button class="faq-question-btn w-full p-4 sm:p-5 text-left flex justify-between items-center text-xs sm:text-sm font-bold text-slate-800 hover:text-sky-600 transition">
-            <span>Quem posso incluir como dependente no meu contrato familiar?</span>
-            <svg class="faq-chevron w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-          </button>
-          <div class="faq-answer hidden px-4 sm:px-5 pb-5 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-            Podem ser dependentes diretos: cônjuge ou companheiro(a) em união estável, filhos e enteados até 24 anos (ou sem limite de idade se PcD). Em planos com opção estendida, é possível incluir pais e netos.
+            <div class="mt-4 pb-4 border-b border-slate-100">
+              <span class="text-xs text-slate-400">A partir de</span>
+              <div class="text-3xl font-black text-slate-900 mt-0.5">
+                R$ 489,90 <span class="text-xs font-normal text-slate-500">/mês</span>
+              </div>
+            </div>
+
+            <ul class="mt-4 space-y-2.5 text-xs text-slate-600">
+              <li class="flex items-center gap-2"><span class="text-slate-800 font-bold">✓</span> Hospitais de primeira linha do país</li>
+              <li class="flex items-center gap-2"><span class="text-slate-800 font-bold">✓</span> Reembolso de consultas livres em 48h</li>
+              <li class="flex items-center gap-2"><span class="text-slate-800 font-bold">✓</span> Cobertura para viagens nacionais</li>
+              <li class="flex items-center gap-2"><span class="text-slate-800 font-bold">✓</span> Check-up anual executivo incluso</li>
+            </ul>
           </div>
+
+          <button onclick="document.dispatchEvent(new CustomEvent('openAmCOnChat', {detail: {flow: 'flow_cotacao', value: 'Plano AmCOn Premium Black (R$ 489,90)'}}))" class="mt-6 w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl transition">
+            Simular Este Plano
+          </button>
         </div>
 
       </div>
@@ -960,142 +262,113 @@
     </div>
   </section>
 
-  <!-- ==========================================================================
-       RODAPÉ COMPLETO & REGULATÓRIO
-       ========================================================================== -->
-  <footer class="bg-slate-900 text-slate-400 text-xs pt-16 pb-12 border-t border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- 4 VANTAGENS SIMPLES -->
+  <section id="vantagens" class="py-16 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
       
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-12 border-b border-slate-800">
+      <div class="text-center max-w-2xl mx-auto space-y-2 mb-10">
+        <h2 class="text-2xl font-extrabold text-slate-900">
+          Por que simular na AmCOn?
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500">
+          Tecnologia prática pensada para resolver seu atendimento sem burocracia.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         
-        <!-- Coluna 1: Marca & Registro -->
-        <div class="lg:col-span-2 space-y-4">
-          <div class="flex items-center gap-2">
-            <div class="w-8 h-8 rounded-xl bg-sky-600 text-white flex items-center justify-center font-black">
-              +
-            </div>
-            <span class="text-lg font-extrabold text-white">AmCOn <span class="text-sky-400">Saúde</span></span>
+        <div class="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center font-bold text-lg mb-3">
+            🩺
           </div>
-          <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
-            Cuidado humanizado e tecnologia avançada em saúde suplementar. Operadora registrada e qualificada com Selo Ouro de Desempenho pela Agência Nacional de Saúde Suplementar.
+          <h4 class="text-sm font-bold text-slate-900">Telemedicina 24h</h4>
+          <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+            Consulte com médicos de plantão a qualquer hora pelo celular sem precisar sair de casa.
           </p>
-          <div class="text-[11px] text-slate-500 space-y-0.5">
-            <p>AmCOn Saúde & Planos de Assistência Médica S/A</p>
-            <p>CNPJ: 42.198.700/0001-90 • Registro ANS nº 42.198-7</p>
-            <p>Av. Paulista, 1500 - Bela Vista, São Paulo - SP, 01310-100</p>
+        </div>
+
+        <div class="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center font-bold text-lg mb-3">
+            🏥
           </div>
+          <h4 class="text-sm font-bold text-slate-900">Rede Credenciada</h4>
+          <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+            Centenas de consultórios, laboratórios e prontos-socorros em catálogo demonstrativo.
+          </p>
         </div>
 
-        <!-- Coluna 2: Planos -->
-        <div class="space-y-2">
-          <h5 class="text-white font-bold text-xs uppercase tracking-wider">Planos</h5>
-          <ul class="space-y-1.5 text-slate-400">
-            <li><a href="#planos" class="hover:text-white transition">Individual & Familiar</a></li>
-            <li><a href="#planos" class="hover:text-white transition">PME (2 a 29 vidas)</a></li>
-            <li><a href="#planos" class="hover:text-white transition">Corporativo (30+ vidas)</a></li>
-            <li><a href="#planos" class="hover:text-white transition">AmCOn 60+ Sênior</a></li>
-            <li><a href="#planos" class="hover:text-white transition">Plano Dental Odonto</a></li>
-          </ul>
-        </div>
-
-        <!-- Coluna 3: Serviços & Beneficiário -->
-        <div class="space-y-2">
-          <h5 class="text-white font-bold text-xs uppercase tracking-wider">Serviços</h5>
-          <ul class="space-y-1.5 text-slate-400">
-            <li><a href="#rede" class="hover:text-white transition">Rede Credenciada</a></li>
-            <li><a href="#telemedicina" class="hover:text-white transition">Telemedicina 24 Horas</a></li>
-            <li><button class="open-client-portal-btn hover:text-white transition text-left">2ª Via de Boleto & PIX</button></li>
-            <li><button class="open-client-portal-btn hover:text-white transition text-left">Carteirinha Digital</button></li>
-            <li><button class="open-client-portal-btn hover:text-white transition text-left">Guia de Reembolso</button></li>
-          </ul>
-        </div>
-
-        <!-- Coluna 4: Canais de Atendimento -->
-        <div class="space-y-2">
-          <h5 class="text-white font-bold text-xs uppercase tracking-wider">Atendimento</h5>
-          <div class="space-y-1.5 text-[11px]">
-            <p><strong class="text-white">SAC & Urgência 24h:</strong><br>0800 770 2026</p>
-            <p><strong class="text-white">Central de Vendas:</strong><br>(11) 4002-8922</p>
-            <p><strong class="text-white">Ouvidoria:</strong><br>0800 770 2029 (Seg a Sex das 8h às 18h)</p>
-            <p><strong class="text-white">Atendimento ao Surdo:</strong><br>0800 770 2030</p>
+        <div class="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-lg mb-3">
+            💊
           </div>
+          <h4 class="text-sm font-bold text-slate-900">Remédios com Desconto</h4>
+          <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+            Economia de até 60% em farmácias conveniadas apresentando a carteirinha digital.
+          </p>
+        </div>
+
+        <div class="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-lg mb-3">
+            ⚡
+          </div>
+          <h4 class="text-sm font-bold text-slate-900">Chatbot Inteligente</h4>
+          <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+            Triagem clínica imediata e portas ativas para atendimento humano no Amazon Connect.
+          </p>
         </div>
 
       </div>
 
-      <!-- Rodapé Inferior & LGPD -->
-      <div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] text-slate-500">
-        <p>© 2026 AmCOn Saúde. Todos os direitos reservados. Em conformidade com a LGPD (Lei nº 13.709/2018).</p>
-        <div class="flex items-center gap-4">
-          <a href="#" class="hover:text-slate-400 transition">Política de Privacidade</a>
-          <a href="#" class="hover:text-slate-400 transition">Termos de Uso</a>
-          <a href="#" class="hover:text-slate-400 transition">Portal ANS</a>
-        </div>
+    </div>
+  </section>
+
+  <!-- SOBRE O PROJETO (SIMPLES) -->
+  <section id="sobre" class="py-14 bg-white border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-3">
+      <span class="text-xs font-bold uppercase tracking-wider text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
+        Finalidade do Projeto
+      </span>
+      <h3 class="text-xl font-bold text-slate-900">Sobre esta aplicação</h3>
+      <p class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto">
+        Este projeto foi desenvolvido como uma landing page de front-end para plano de saúde com <strong>dados fictícios</strong>. Ele integra uma assistente virtual interativa (Dra. Sofia) e possui arquitetura desacoplada com portas abertas para conexão com o <strong>Amazon Connect</strong> (AWS Contact Center, ChatJS e WebSockets).
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ CURTO & OBJETIVO -->
+  <section id="faq" class="py-14 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 space-y-4">
+      <div class="text-center mb-6">
+        <h3 class="text-xl font-bold text-slate-900">Perguntas Rápidas</h3>
       </div>
 
+      <div class="p-4 bg-white rounded-xl border border-slate-200 text-xs text-slate-700">
+        <strong class="text-slate-900 block mb-1">Como funciona a simulação?</strong>
+        Você pode clicar nos botões dos planos ou abrir o chat no canto inferior direito para conversar com a Dra. Sofia e obter valores fictícios instantâneos.
+      </div>
+
+      <div class="p-4 bg-white rounded-xl border border-slate-200 text-xs text-slate-700">
+        <strong class="text-slate-900 block mb-1">Como o Amazon Connect é conectado?</strong>
+        O front-end possui o arquivo <code>js/amazon-connect.js</code> e um botão no topo do chat (<em>⚡ AWS Connect</em>) onde você pode testar a conexão com uma API Gateway/Lambda real da AWS.
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER SIMPLES -->
+  <footer class="py-8 bg-slate-900 text-slate-400 text-xs text-center border-t border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 space-y-2">
+      <p class="text-white font-bold">AmCOn Saúde • Projeto Front-end</p>
+      <p class="text-[11px] text-slate-500">
+        Todos os dados apresentados nesta página (médicos, planos, valores e credenciados) são fictícios e destinados a fins de demonstração técnica.
+      </p>
     </div>
   </footer>
 
   <!-- ==========================================================================
-       MODAL: ESPAÇO DO BENEFICIÁRIO / LOGIN
-       ========================================================================== -->
-  <div id="client-portal-modal" class="hidden fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative border border-slate-200 animate-in fade-in zoom-in duration-200">
-      
-      <button id="close-portal-modal-btn" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 font-bold text-xl">
-        &times;
-      </button>
-
-      <div class="text-center">
-        <div class="w-12 h-12 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center mx-auto text-xl font-bold">
-          🪪
-        </div>
-        <h3 class="text-lg font-bold text-slate-900 mt-3">Espaço do Cliente AmCOn</h3>
-        <p class="text-xs text-slate-500 mt-1">Acesse sua carteirinha digital, 2ª via e autorizações</p>
-      </div>
-
-      <!-- Tabs do Portal -->
-      <div class="flex border-b border-slate-200 mt-6 text-xs">
-        <button class="portal-tab-btn flex-1 pb-2 border-b-2 border-sky-600 text-sky-700 font-bold">Beneficiário</button>
-        <button class="portal-tab-btn flex-1 pb-2 border-b-2 border-transparent text-slate-500 hover:text-slate-700">Empresa (RH)</button>
-        <button class="portal-tab-btn flex-1 pb-2 border-b-2 border-transparent text-slate-500 hover:text-slate-700">Corretor</button>
-      </div>
-
-      <form class="mt-5 space-y-3.5" onsubmit="event.preventDefault(); alert('Login efetuado com sucesso! Redirecionando para o Portal do Beneficiário...');">
-        <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1">CPF ou Número da Carteirinha:</label>
-          <input type="text" placeholder="000.000.000-00" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-800 focus:ring-2 focus:ring-sky-500 focus:outline-none">
-        </div>
-
-        <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1">Senha de Acesso:</label>
-          <input type="password" placeholder="••••••••" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-800 focus:ring-2 focus:ring-sky-500 focus:outline-none">
-        </div>
-
-        <div class="flex items-center justify-between text-[11px]">
-          <label class="flex items-center gap-1.5 text-slate-600 cursor-pointer">
-            <input type="checkbox" checked class="rounded text-sky-600"> Lembrar CPF
-          </label>
-          <a href="#" class="text-sky-600 hover:underline">Esqueci minha senha</a>
-        </div>
-
-        <button type="submit" class="w-full py-3 bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs rounded-xl shadow-md transition">
-          Entrar no Portal
-        </button>
-
-        <div class="pt-2 text-center text-xs text-slate-500">
-          Primeiro acesso? <a href="#" onclick="alert('Instruções enviadas para seu e-mail cadastrado');" class="text-sky-600 font-bold hover:underline">Cadastrar Senha</a>
-        </div>
-      </form>
-
-    </div>
-  </div>
-
-  <!-- ==========================================================================
-       MODAL: CONFIGURAÇÃO & INTEGRAÇÃO AMAZON CONNECT (PORTAS ABERTAS)
+       MODAL: CONFIGURAÇÃO AMAZON CONNECT (PORTAS ABERTAS)
        ========================================================================== -->
   <div id="amazon-connect-modal" class="hidden fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative border border-slate-200 animate-in fade-in zoom-in duration-200 max-h-[90vh] overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative border border-slate-200 max-h-[90vh] overflow-y-auto">
       
       <button id="close-aws-modal-btn" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 font-bold text-xl">
         &times;
@@ -1111,16 +384,14 @@
         </div>
       </div>
 
-      <!-- Status do Teste -->
       <div id="aws-test-status-box" class="hidden mt-4"></div>
 
       <form id="aws-connect-config-form" class="mt-5 space-y-4">
         
-        <!-- Toggle Live vs Híbrido -->
         <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between">
           <div>
             <strong class="text-xs font-bold text-slate-800 block">Modo Amazon Connect Live</strong>
-            <span class="text-[11px] text-slate-500 block">Roteia mensagens e eventos diretamente para as filas do seu Contact Center AWS</span>
+            <span class="text-[11px] text-slate-500 block">Roteia mensagens para o seu contact center AWS</span>
           </div>
           <label class="relative inline-flex items-center cursor-pointer">
             <input type="checkbox" id="aws-config-enabled" class="sr-only peer">
@@ -1131,7 +402,6 @@
         <div>
           <label class="block text-xs font-semibold text-slate-700 mb-1">API Gateway Endpoint (StartChatContact):</label>
           <input type="url" id="aws-config-endpoint" placeholder="https://seu-api-id.execute-api.us-east-1.amazonaws.com/prod/startChatContact" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-800 font-mono focus:ring-2 focus:ring-amber-500 focus:outline-none">
-          <span class="text-[10px] text-slate-500 mt-1 block">URL da sua função AWS Lambda que executa a API <code>StartChatContact</code> do Amazon Connect.</span>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -1158,56 +428,17 @@
           </button>
         </div>
 
-        <!-- Código de Referência para Lambda -->
-        <details class="mt-4 pt-3 border-t border-slate-200 text-xs">
-          <summary class="font-bold text-sky-800 cursor-pointer hover:underline">
-            📋 Ver modelo da função AWS Lambda (Node.js) para StartChatContact
-          </summary>
-          <div class="mt-2 p-3 bg-slate-900 text-emerald-400 rounded-xl font-mono text-[11px] overflow-x-auto">
-<pre>// AWS Lambda (Node.js 18+) para iniciar chat no Amazon Connect
-const { ConnectClient, StartChatContactCommand } = require("@aws-sdk/client-connect");
-const connect = new ConnectClient({ region: process.env.AWS_REGION || "us-east-1" });
-
-exports.handler = async (event) => {
-  const body = JSON.parse(event.body || "{}");
-  const params = {
-    InstanceId: process.env.CONNECT_INSTANCE_ID || body.InstanceId,
-    ContactFlowId: process.env.CONNECT_CONTACT_FLOW_ID || body.ContactFlowId,
-    ParticipantDetails: { DisplayName: body.ParticipantDetails?.DisplayName || "Cliente" },
-    Attributes: body.Attributes || {},
-    InitialMessage: body.InitialMessage
-  };
-  const command = new StartChatContactCommand(params);
-  const response = await connect.send(command);
-
-  return {
-    statusCode: 200,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "Content-Type",
-      "Access-Control-Allow-Methods": "POST,OPTIONS"
-    },
-    body: JSON.stringify({
-      ContactId: response.ContactId,
-      ParticipantId: response.ParticipantId,
-      ParticipantToken: response.ParticipantToken
-    })
-  };
-};</pre>
-          </div>
-        </details>
-
       </form>
 
     </div>
   </div>
 
   <!-- ==========================================================================
-       SISTEMA DE CHAT PROFISSIONAL & CONCIERGE 24H (AMCON CHAT ENGINE)
+       BALÃO DO CHAT NO CANTO INFERIOR DIREITO (WIDGET FLUTUANTE)
        ========================================================================== -->
   <div id="chat-widget-container">
     
-    <!-- Caixa do Chat (Janela Principal) -->
+    <!-- Caixa do Chat (Janela Principal que abre ao clicar no balão) -->
     <div id="chat-box" class="chat-box chat-hidden">
       
       <!-- Cabeçalho do Chat -->
@@ -1223,7 +454,7 @@ exports.handler = async (event) => {
           <div>
             <div class="flex items-center gap-1.5">
               <h4 id="chat-operator-name" class="text-sm font-bold text-white tracking-wide">Dra. Sofia</h4>
-              <span class="text-[9px] bg-teal-500/30 text-teal-200 border border-teal-400/30 px-1.5 py-0.2 rounded font-semibold">Oficial</span>
+              <span class="text-[9px] bg-teal-500/30 text-teal-200 border border-teal-400/30 px-1.5 py-0.2 rounded font-semibold">Online</span>
             </div>
             <p id="chat-operator-role" class="text-[11px] text-cyan-200/90 font-medium -mt-0.5">Assistente Virtual & Triagem AmCOn</p>
           </div>
@@ -1232,7 +463,7 @@ exports.handler = async (event) => {
         <!-- Controles da Janela -->
         <div class="flex items-center gap-1.5">
           <!-- Botão Badge Status do Amazon Connect -->
-          <button id="aws-connect-badge-btn" class="text-[10px] bg-amber-500/20 text-amber-200 border border-amber-400/40 px-2 py-0.5 rounded font-mono transition flex items-center gap-1 cursor-pointer hover:bg-amber-500/30" title="Amazon Connect: Portas Prontas para Conectar (Clique para configurar)">
+          <button id="aws-connect-badge-btn" class="text-[10px] bg-amber-500/20 text-amber-200 border border-amber-400/40 px-2 py-0.5 rounded font-mono transition flex items-center gap-1 cursor-pointer hover:bg-amber-500/30" title="Amazon Connect: Portas Prontas (Clique para configurar)">
             <span class="w-1.5 h-1.5 rounded-full bg-amber-400" id="aws-status-dot"></span>
             <span id="aws-status-text">AWS Connect</span>
           </button>
@@ -1242,12 +473,12 @@ exports.handler = async (event) => {
             <svg class="w-4 h-4 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
           </button>
           
-          <!-- Botão Reset / Limpar conversa -->
+          <!-- Botão Reset -->
           <button id="chat-reset-btn" class="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition" title="Reiniciar conversa">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
           </button>
 
-          <!-- Botão Expandir / Maximizar -->
+          <!-- Botão Expandir -->
           <button id="chat-maximize-btn" class="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition" title="Expandir janela">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
           </button>
@@ -1259,13 +490,13 @@ exports.handler = async (event) => {
         </div>
       </div>
 
-      <!-- Faixa de Segurança & LGPD -->
+      <!-- Faixa Informativa -->
       <div class="bg-slate-100 text-[10px] text-slate-500 py-1 px-4 flex items-center justify-between border-b border-slate-200">
         <span class="flex items-center gap-1">
           <svg class="w-3 h-3 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
-          Atendimento Criptografado & LGPD
+          Atendimento Inteligente 24h
         </span>
-        <span>ANS nº 42.198-7</span>
+        <span class="text-slate-400">Dados Fictícios</span>
       </div>
 
       <!-- Histórico de Mensagens do Chat -->
@@ -1276,7 +507,7 @@ exports.handler = async (event) => {
       <!-- Rodapé / Barra de Entrada do Chat -->
       <div class="chat-footer">
         
-        <!-- Barra de Gravação de Áudio Ativa (Alterna com o input) -->
+        <!-- Barra de Gravação de Áudio Ativa -->
         <div id="chat-recording-bar" class="hidden audio-recording-bar py-1.5 px-3 bg-red-50 border border-red-200 rounded-full flex items-center justify-between mb-2">
           <div class="flex items-center gap-2">
             <span class="w-2.5 h-2.5 rounded-full bg-red-600 animate-ping"></span>
@@ -1291,16 +522,16 @@ exports.handler = async (event) => {
         <!-- Input Wrapper com Anexo, Microfone e Enviar -->
         <div class="chat-input-wrapper">
           
-          <!-- Botão de Anexo (Upload de Documento/Pedido Médico) -->
+          <!-- Botão de Anexo -->
           <input type="file" id="chat-file-input" class="hidden" accept="image/*,.pdf,.doc,.docx">
-          <button id="chat-attach-btn" class="text-slate-400 hover:text-sky-600 transition p-1" title="Anexar pedido médico ou documento">
+          <button id="chat-attach-btn" class="text-slate-400 hover:text-sky-600 transition p-1" title="Anexar documento ou pedido médico">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path></svg>
           </button>
 
           <!-- Input de Texto -->
           <input type="text" id="chat-input" placeholder="Digite sua mensagem ou dúvida..." class="chat-input" autocomplete="off">
 
-          <!-- Botão de Microfone (Áudio Simulador) -->
+          <!-- Botão de Microfone -->
           <button id="chat-mic-btn" class="text-slate-400 hover:text-sky-600 transition p-1" title="Gravar mensagem de áudio">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
           </button>
@@ -1315,22 +546,22 @@ exports.handler = async (event) => {
 
     </div>
 
-    <!-- Botão Flutuante de Abertura do Chat (Trigger) -->
-    <button id="chat-trigger-btn" class="chat-trigger-btn group">
+    <!-- BALÃO FLUTUANTE DO CHAT NO CANTO INFERIOR DIREITO -->
+    <button id="chat-trigger-btn" class="chat-trigger-btn group" aria-label="Abrir Chat de Atendimento">
       
       <!-- Notificação Não Lida Pulse -->
-      <span id="chat-unread-badge" class="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-emerald-500 text-slate-900 font-extrabold text-[10px] flex items-center justify-center border-2 border-white shadow-sm animate-bounce">
+      <span id="chat-unread-badge" class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-emerald-500 text-slate-900 font-extrabold text-[10px] flex items-center justify-center border-2 border-white shadow-sm animate-bounce">
         1
       </span>
 
-      <!-- Ícone Médico -->
+      <!-- Ícone Balão de Chat -->
       <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-lg">
-        🩺
+        💬
       </div>
 
       <div class="text-left pr-1">
         <span class="block text-xs font-bold leading-tight">Dra. Sofia • Online</span>
-        <span class="block text-[10px] text-cyan-100 font-normal">Triagem Médica & Planos 24h</span>
+        <span class="block text-[10px] text-cyan-100 font-normal">Tirar dúvidas & Cotação</span>
       </div>
 
       <svg class="w-4 h-4 text-white/80 group-hover:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1343,7 +574,5 @@ exports.handler = async (event) => {
   <!-- Scripts da Aplicação -->
   <script src="js/amazon-connect.js"></script>
   <script src="js/chat.js"></script>
-  <script src="js/app.js"></script>
 </body>
 </html>
-
