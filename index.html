@@ -496,6 +496,20 @@
 
   </div>
 
+<script type="text/javascript">
+  (function(w, d, x, id){
+    s=d.createElement('script');
+    s.src='https://group4saude.my.connect.aws/connectwidget/static/amazon-connect-chat-interface-client.js';
+    s.async=1;
+    s.id=id;
+    d.getElementsByTagName('head')[0].appendChild(s);
+    w[x] =  w[x] || function() { (w[x].ac = w[x].ac || []).push(arguments) };
+  })(window, document, 'amazon_connect', '0b8b1df5-cd02-4e06-81ac-698196fa2b96');
+  amazon_connect('styles', { iconType: 'CHAT', openChat: { color: '#ffffff', backgroundColor: '#17a12e' }, closeChat: { color: '#ffffff', backgroundColor: '#19b34f'} });
+  amazon_connect('snippetId', 'QVFJREFIaDRobWZ4TDRrQys5SXJsU0RsT2NjaHpDOEQvN3ZqSEZkQWdhY1I3SUhoUXdGMXhVLzNQUUk4MjZOaGRrNGRRTUFHQUFBQWJqQnNCZ2txaGtpRzl3MEJCd2FnWHpCZEFnRUFNRmdHQ1NxR1NJYjNEUUVIQVRBZUJnbGdoa2dCWlFNRUFTNHdFUVFNYTNzLzV6b2x1bkNxU0FOT0FnRVFnQ3ZNQnN1M2FrdDVaeFJZVHNiWDRGTndwQ3NTNlpSZ3dhZGFTaUhqZm1OazZnL3ZrYlM5WEhndDN6NnE6OjZPMUxTSmhnQTd5SmxBKzVrdVE4QTJuVndnYVpQV1YzU0JhclQ1aXpvQ2ptcE9tOEVzcHAvQ0tvNit2TzVNZGp1RUFzNm1JSUJvQzFDdnRsMDBxRTJxMWpQN0k4NUJ2a2swOGlhdHBPaXhYYVVhMkEwZitPRzJ5Z1pVcERTK3Vyek9NNUFBWGl2VXFNbHJoUml5RU1vb1pVMWdsQWtIND0=');
+  amazon_connect('supportedMessagingContentTypes', [ 'text/plain', 'text/markdown', 'application/vnd.amazonaws.connect.message.interactive', 'application/vnd.amazonaws.connect.message.interactive.response' ]);
+</script>
+  
   <!-- Scripts da Aplicação -->
   <script src="js/amazon-connect.js"></script>
   <script src="js/chat.js"></script>
