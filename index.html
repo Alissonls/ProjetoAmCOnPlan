@@ -185,7 +185,7 @@
             </ul>
           </div>
 
-          <button onclick="openConnectChat()" class="mt-6 w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl transition">
+          <button onclick="openConnectChat({flow: 'flow_cotacao', value: 'Plano AmCOn Essencial (R$ 149,90)'})" class="mt-6 w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl transition">
             Simular Este Plano
           </button>
         </div>
@@ -221,7 +221,7 @@
             </ul>
           </div>
 
-          <button onclick="openConnectChat()" class="mt-6 w-full py-2.5 bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold rounded-xl shadow-md shadow-sky-600/30 transition">
+          <button onclick="openConnectChat({flow: 'flow_cotacao', value: 'Plano AmCOn Família Mais (R$ 289,90)'})" class="mt-6 w-full py-2.5 bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold rounded-xl shadow-md shadow-sky-600/30 transition">
             Simular Este Plano
           </button>
         </div>
@@ -252,7 +252,7 @@
             </ul>
           </div>
 
-          <button onclick="openConnectChat()" class="mt-6 w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl transition">
+          <button onclick="openConnectChat({flow: 'flow_cotacao', value: 'Plano AmCOn Premium Black (R$ 489,90)'})" class="mt-6 w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl transition">
             Simular Este Plano
           </button>
         </div>
@@ -365,31 +365,262 @@
   </footer>
 
   <!-- ==========================================================================
+       CONTAINER DO CHAT AMCON ATENDENTE (ESTRUTURA INTEGRADA)
+       ========================================================================== -->
+  <div id="chat-widget-container">
+    
+    <!-- Caixa do Chat (Janela Principal que abre ao clicar no balão ou botões) -->
+    <div id="chat-box" class="chat-box chat-hidden">
+      
+      <!-- Cabeçalho do Chat -->
+      <div class="chat-header">
+        <div class="flex items-center gap-3">
+          <div class="relative">
+            <div id="chat-operator-avatar" class="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-400 to-teal-500 flex items-center justify-center text-lg shadow-md border-2 border-white/20">
+              🩺
+            </div>
+            <span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-400 border-2 border-slate-900"></span>
+          </div>
+
+          <div>
+            <div class="flex items-center gap-1.5">
+              <h4 id="chat-operator-name" class="text-sm font-bold text-white tracking-wide">AmCo Atendente</h4>
+              <span class="text-[9px] bg-teal-500/30 text-teal-200 border border-teal-400/30 px-1.5 py-0.2 rounded font-semibold">Online</span>
+            </div>
+            <p id="chat-operator-role" class="text-[11px] text-cyan-200/90 font-medium -mt-0.5">Atendimento & Triagem AmCOn</p>
+          </div>
+        </div>
+
+        <!-- Controles da Janela -->
+        <div class="flex items-center gap-1.5">
+          <!-- Botão Som -->
+          <button id="chat-sound-btn" class="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition" title="Silenciar sons">
+            <svg class="w-4 h-4 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+          </button>
+          
+          <!-- Botão Reset -->
+          <button id="chat-reset-btn" class="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition" title="Reiniciar conversa">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+          </button>
+
+          <!-- Botão Expandir -->
+          <button id="chat-maximize-btn" class="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition" title="Expandir janela">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
+          </button>
+
+          <!-- Botão Minimizar / Fechar -->
+          <button id="chat-minimize-btn" class="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition" title="Fechar chat">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Faixa Informativa -->
+      <div class="bg-slate-100 text-[10px] text-slate-500 py-1 px-4 flex items-center justify-between border-b border-slate-200">
+        <span class="flex items-center gap-1">
+          <svg class="w-3 h-3 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+          Atendimento Inteligente 24h
+        </span>
+        <span class="text-slate-400">Dados Fictícios</span>
+      </div>
+
+      <!-- Histórico de Mensagens do Chat -->
+      <div id="chat-messages" class="chat-messages">
+        <!-- As mensagens são injetadas dinamicamente pelo chat.js -->
+      </div>
+
+      <!-- Rodapé / Barra de Entrada do Chat -->
+      <div class="chat-footer">
+        
+        <!-- Barra de Gravação de Áudio Ativa -->
+        <div id="chat-recording-bar" class="hidden audio-recording-bar py-1.5 px-3 bg-red-50 border border-red-200 rounded-full flex items-center justify-between mb-2">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-red-600 animate-ping"></span>
+            <span class="text-xs text-red-700 font-bold">Gravando áudio: <span id="recording-timer">00:00</span></span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button id="cancel-record-btn" class="text-xs text-slate-500 hover:text-slate-800 font-medium">Cancelar</button>
+            <button id="send-record-btn" class="px-2.5 py-1 bg-red-600 hover:bg-red-700 text-white rounded-full text-xs font-bold shadow-sm">Enviar</button>
+          </div>
+        </div>
+
+        <!-- Input Wrapper com Anexo, Microfone e Enviar -->
+        <div class="chat-input-wrapper">
+          
+          <!-- Botão de Anexo -->
+          <input type="file" id="chat-file-input" class="hidden" accept="image/*,.pdf,.doc,.docx">
+          <button id="chat-attach-btn" class="text-slate-400 hover:text-sky-600 transition p-1" title="Anexar documento ou pedido médico">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path></svg>
+          </button>
+
+          <!-- Input de Texto -->
+          <input type="text" id="chat-input" placeholder="Digite sua mensagem ou dúvida..." class="chat-input" autocomplete="off">
+
+          <!-- Botão de Microfone -->
+          <button id="chat-mic-btn" class="text-slate-400 hover:text-sky-600 transition p-1" title="Gravar mensagem de áudio">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+          </button>
+
+          <!-- Botão de Enviar -->
+          <button id="chat-send-btn" class="chat-send-btn" disabled title="Enviar mensagem">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- BOTÃO FLUTUANTE DE BACKUP (Fica oculto enquanto o Amazon Connect estiver visível, garantindo que NUNCA existam dois botões) -->
+    <button id="chat-trigger-btn" class="chat-trigger-btn group" style="display: none;" aria-label="Abrir Chat de Atendimento">
+      <span id="chat-unread-badge" class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-emerald-500 text-slate-900 font-extrabold text-[10px] flex items-center justify-center border-2 border-white shadow-sm animate-bounce">
+        1
+      </span>
+      <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-lg">
+        💬
+      </div>
+      <div class="text-left pr-1">
+        <span class="block text-xs font-bold leading-tight">AmCo Atendente • Online</span>
+        <span class="block text-[10px] text-cyan-100 font-normal">Tirar dúvidas & Cotação</span>
+      </div>
+      <svg class="w-4 h-4 text-white/80 group-hover:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </button>
+
+  </div>
+
+  <!-- Scripts da Aplicação -->
+  <script src="js/amazon-connect.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/app.js"></script>
+
+  <!-- ==========================================================================
        SCRIPT DO WIDGET OFICIAL AMAZON CONNECT
        ========================================================================== -->
-<script type="text/javascript">
-  (function(w, d, x, id){
-    s=d.createElement('script');
-    s.src='https://group4saude.my.connect.aws/connectwidget/static/amazon-connect-chat-interface-client.js';
-    s.async=1;
-    s.id=id;
-    d.getElementsByTagName('head')[0].appendChild(s);
-    w[x] =  w[x] || function() { (w[x].ac = w[x].ac || []).push(arguments) };
-  })(window, document, 'amazon_connect', '0b8b1df5-cd02-4e06-81ac-698196fa2b96');
-  amazon_connect('styles', { iconType: 'CHAT', openChat: { color: '#ffffff', backgroundColor: '#17a12e' }, closeChat: { color: '#ffffff', backgroundColor: '#19b34f'} });
-  amazon_connect('snippetId', 'QVFJREFIaDRobWZ4TDRrQys5SXJsU0RsT2NjaHpDOEQvN3ZqSEZkQWdhY1I3SUhoUXdGMXhVLzNQUUk4MjZOaGRrNGRRTUFHQUFBQWJqQnNCZ2txaGtpRzl3MEJCd2FnWHpCZEFnRUFNRmdHQ1NxR1NJYjNEUUVIQVRBZUJnbGdoa2dCWlFNRUFTNHdFUVFNYTNzLzV6b2x1bkNxU0FOT0FnRVFnQ3ZNQnN1M2FrdDVaeFJZVHNiWDRGTndwQ3NTNlpSZ3dhZGFTaUhqZm1OazZnL3ZrYlM5WEhndDN6NnE6OjZPMUxTSmhnQTd5SmxBKzVrdVE4QTJuVndnYVpQV1YzU0JhclQ1aXpvQ2ptcE9tOEVzcHAvQ0tvNit2TzVNZGp1RUFzNm1JSUJvQzFDdnRsMDBxRTJxMWpQN0k4NUJ2a2swOGlhdHBPaXhYYVVhMkEwZitPRzJ5Z1pVcERTK3Vyek9NNUFBWGl2VXFNbHJoUml5RU1vb1pVMWdsQWtIND0=');
-  amazon_connect('supportedMessagingContentTypes', [ 'text/plain', 'text/markdown', 'application/vnd.amazonaws.connect.message.interactive', 'application/vnd.amazonaws.connect.message.interactive.response' ]);
+  <script type="text/javascript">
+    (function(w, d, x, id){
+      s=d.createElement('script');
+      s.src='https://group4saude.my.connect.aws/connectwidget/static/amazon-connect-chat-interface-client.js';
+      s.async=1;
+      s.id=id;
+      d.getElementsByTagName('head')[0].appendChild(s);
+      w[x] =  w[x] || function() { (w[x].ac = w[x].ac || []).push(arguments) };
+    })(window, document, 'amazon_connect', '0b8b1df5-cd02-4e06-81ac-698196fa2b96');
+    amazon_connect('styles', { iconType: 'CHAT', openChat: { color: '#ffffff', backgroundColor: '#17a12e' }, closeChat: { color: '#ffffff', backgroundColor: '#19b34f'} });
+    amazon_connect('snippetId', 'QVFJREFIaDRobWZ4TDRrQys5SXJsU0RsT2NjaHpDOEQvN3ZqSEZkQWdhY1I3SUhoUXdGMXhVLzNQUUk4MjZOaGRrNGRRTUFHQUFBQWJqQnNCZ2txaGtpRzl3MEJCd2FnWHpCZEFnRUFNRmdHQ1NxR1NJYjNEUUVIQVRBZUJnbGdoa2dCWlFNRUFTNHdFUVFNYTNzLzV6b2x1bkNxU0FOT0FnRVFnQ3ZNQnN1M2FrdDVaeFJZVHNiWDRGTndwQ3NTNlpSZ3dhZGFTaUhqZm1OazZnL3ZrYlM5WEhndDN6NnE6OjZPMUxTSmhnQTd5SmxBKzVrdVE4QTJuVndnYVpQV1YzU0JhclQ1aXpvQ2ptcE9tOEVzcHAvQ0tvNit2TzVNZGp1RUFzNm1JSUJvQzFDdnRsMDBxRTJxMWpQN0k4NUJ2a2swOGlhdHBPaXhYYVVhMkEwZitPRzJ5Z1pVcERTK3Vyek9NNUFBWGl2VXFNbHJoUml5RU1vb1pVMWdsQWtIND0=');
+    amazon_connect('supportedMessagingContentTypes', [ 'text/plain', 'text/markdown', 'application/vnd.amazonaws.connect.message.interactive', 'application/vnd.amazonaws.connect.message.interactive.response' ]);
+  </script>
 
-  function openConnectChat() {
-    if (typeof amazon_connect === 'function') {
-      try { amazon_connect('openChat'); } catch(e) {}
-    }
-    const btn = document.querySelector('[id*="amazon-connect-chat-widget-button"]') || 
-                document.querySelector('button[aria-label*="chat" i]') ||
-                document.querySelector('#connect-chat-widget-button') ||
-                document.querySelector('.connect-chat-widget-icon');
-    if (btn) btn.click();
-  }
-</script>
+  <!-- ==========================================================================
+       CONTROLADOR UNIFICADO DO CHAT (AMAZON CONNECT + AMCON ATENDENTE)
+       Garante que nunca haja 2 botões e que o chat sempre abra mesmo se a AWS falhar
+       ========================================================================== -->
+  <script type="text/javascript">
+    (function() {
+      'use strict';
+      let acErrorDetected = false;
+
+      // Monitora e sincroniza os botões e janelas
+      function syncChatWidgets() {
+        const customBtn = document.getElementById('chat-trigger-btn');
+        const acOpenBtn = document.getElementById('amazon-connect-open-widget-button');
+        const acCloseBtn = document.getElementById('amazon-connect-close-widget-button');
+        
+        // Garante que NUNCA apareçam dois botões flutuantes na tela
+        if (customBtn && (acOpenBtn || acCloseBtn)) {
+          customBtn.style.display = 'none';
+        }
+
+        // Detecta se o frame da AWS Connect exibiu mensagem de erro
+        const frame = document.getElementById('amazon-connect-widget-frame');
+        if (frame) {
+          const isError = frame.querySelector('[class*="acError"]') || 
+                          (frame.innerText && (frame.innerText.includes('went wrong') || frame.innerText.includes('unable to load')));
+          if (isError) {
+            acErrorDetected = true;
+            frame.style.display = 'none';
+            if (window.amconChat && !window.amconChat.isOpen) {
+              window.amconChat.openChat();
+            }
+          }
+        }
+      }
+
+      // Observer em tempo real
+      const observer = new MutationObserver(syncChatWidgets);
+      observer.observe(document.documentElement, { childList: true, subtree: true });
+
+      // Clique no botão do Amazon Connect
+      document.addEventListener('click', function(e) {
+        const openBtn = e.target.closest('#amazon-connect-open-widget-button');
+        if (openBtn) {
+          // Se o usuário clicar no botão do Amazon Connect, aguarda tentativa de conexão com a AWS
+          setTimeout(function() {
+            const frame = document.getElementById('amazon-connect-widget-frame');
+            const hasIframe = frame && frame.querySelector('iframe');
+            const isError = frame && (frame.querySelector('[class*="acError"]') || (frame.innerText && frame.innerText.includes('went wrong')));
+            
+            // Se falhou (origem não autorizada na AWS ou erro 400), abre o chat integrado AmCOn
+            if (isError || !hasIframe) {
+              if (frame) frame.style.display = 'none';
+              if (window.amconChat && !window.amconChat.isOpen) {
+                window.amconChat.openChat();
+              }
+            }
+          }, 350);
+        }
+
+        // Se o usuário clicar em minimizar no botão da AWS
+        const closeBtn = e.target.closest('#amazon-connect-close-widget-button');
+        if (closeBtn && window.amconChat && window.amconChat.isOpen) {
+          window.amconChat.closeChat();
+        }
+      }, true);
+
+      // Fallback: se por bloqueador de anúncios ou lentidão o script da AWS não carregar, exibe o botão AmCOn
+      setTimeout(function() {
+        const acOpenBtn = document.getElementById('amazon-connect-open-widget-button');
+        const customBtn = document.getElementById('chat-trigger-btn');
+        if (!acOpenBtn && customBtn) {
+          customBtn.style.display = 'flex';
+        }
+      }, 2500);
+
+      // Função chamada pelos botões de CTA da página (Hero, Header, Planos)
+      window.openConnectChat = function(detail) {
+        const acOpenBtn = document.getElementById('amazon-connect-open-widget-button');
+        const frame = document.getElementById('amazon-connect-widget-frame');
+        const hasLiveIframe = frame && frame.querySelector('iframe');
+
+        if (acOpenBtn && !acErrorDetected && !hasLiveIframe) {
+          acOpenBtn.click();
+          setTimeout(function() {
+            const currentFrame = document.getElementById('amazon-connect-widget-frame');
+            const hasIframeNow = currentFrame && currentFrame.querySelector('iframe');
+            const isError = currentFrame && (currentFrame.querySelector('[class*="acError"]') || (currentFrame.innerText && currentFrame.innerText.includes('went wrong')));
+            if (isError || !hasIframeNow) {
+              acErrorDetected = true;
+              if (currentFrame) currentFrame.style.display = 'none';
+              launchAmconChat(detail);
+            }
+          }, 400);
+        } else {
+          launchAmconChat(detail);
+        }
+      };
+
+      function launchAmconChat(detail) {
+        if (window.amconChat) {
+          window.amconChat.openChat();
+          if (detail && detail.flow) {
+            setTimeout(function() {
+              window.amconChat.handleQuickAction(detail.flow, detail.value || '');
+            }, 300);
+          }
+        }
+      }
+    })();
+  </script>
 </body>
 </html>

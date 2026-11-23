@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "nome": "Dra. Mariana Silva Ribeiro",
+    "especialidade": "Cardiologia",
+    "regiao": "Centro",
+    "crm": "142.981-SP",
+    "endereco": "Avenida Paulista, 1200 - Conjunto 42, Bela Vista",
+    "telefone": "(11) 3254-8900",
+    "planos": ["Todos", "Premium VIP", "Master", "Essencial"]
+  },
+  {
+    "id": 2,
+    "nome": "Dr. Fernando Almeida Costa",
+    "especialidade": "Cardiologia",
+    "regiao": "Zona Sul",
+    "crm": "158.443-SP",
+    "endereco": "Rua Domingos de Morais, 2187 - Vila Mariana",
+    "telefone": "(11) 5084-3320",
+    "planos": ["Todos", "Premium VIP", "Master"]
+  },
+  {
+    "id": 3,
+    "nome": "Dra. Camila Nogueira Prado",
+    "especialidade": "Pediatria",
+    "regiao": "Zona Sul",
+    "crm": "173.201-SP",
+    "endereco": "Avenida Santo Amaro, 4500 - Brooklin",
+    "telefone": "(11) 5543-1288",
+    "planos": ["Todos", "Premium VIP", "Master", "Essencial"]
+  },
+  {
+    "id": 4,
+    "nome": "Dr. Roberto Santoro",
+    "especialidade": "Pediatria",
+    "regiao": "Zona Leste",
+    "crm": "165.110-SP",
+    "endereco": "Rua Emília Marengo, 890 - Anália Franco",
+    "telefone": "(11) 2671-5544",
+    "planos": ["Todos", "Premium VIP", "Master", "Essencial"]
+  },
+  {
+    "id": 5,
+    "nome": "Dr. Lucas Vasconcelos",
+    "especialidade": "Ortopedia",
+    "regiao": "Zona Leste",
+    "crm": "139.776-SP",
+    "endereco": "Rua Tuiuti, 1850 - Tatuapé",
+    "telefone": "(11) 2091-6677",
+    "planos": ["Todos", "Premium VIP", "Master", "Essencial"]
+  },
+  {
+    "id": 6,
+    "nome": "Dr. Marcelo Castilho",
+    "especialidade": "Ortopedia",
+    "regiao": "Zona Oeste",
+    "crm": "148.330-SP",
+    "endereco": "Rua Fradique Coutinho, 950 - Pinheiros",
+    "telefone": "(11) 3812-4400",
+    "planos": ["Todos", "Premium VIP", "Master", "Essencial"]
+  },
+  {
+    "id": 7,
+    "nome": "Dra. Juliana Mendes Rocha",
+    "especialidade": "Clínica Geral",
+    "regiao": "Zona Oeste",
+    "crm": "162.889-SP",
+    "endereco": "Rua Teodoro Sampaio, 1420 - Pinheiros",
+    "telefone": "(11) 3085-7140",
+    "planos": ["Todos", "Premium VIP", "Master", "Essencial"]
+  },
+  {
+    "id": 8,
+    "nome": "Dr. Ricardo Guimarães Lima",
+    "especialidade": "Clínica Geral",
+    "regiao": "Zona Norte",
+    "crm": "151.042-SP",
+    "endereco": "Avenida Braz Leme, 1600 - Santana",
+    "telefone": "(11) 2281-9900",
+    "planos": ["Todos", "Premium VIP", "Master", "Essencial"]
+  },
+  {
+    "id": 9,
+    "nome": "Dra. Patrícia Helena Duarte",
+    "especialidade": "Ginecologia",
+    "regiao": "Centro",
+    "crm": "155.670-SP",
+    "endereco": "Rua Consolação, 2240 - Cerqueira César",
+    "telefone": "(11) 3150-8000",
+    "planos": ["Todos", "Premium VIP", "Master", "Essencial"]
+  },
+  {
+    "id": 10,
+    "nome": "Dr. Carlos Eduardo Fagundes",
+    "especialidade": "Dermatologia",
+    "regiao": "Zona Sul",
+    "crm": "144.912-SP",
+    "endereco": "Rua Vergueiro, 3185 - Vila Mariana",
+    "telefone": "(11) 5082-1200",
+    "planos": ["Todos", "Premium VIP", "Master"]
+  }
+]

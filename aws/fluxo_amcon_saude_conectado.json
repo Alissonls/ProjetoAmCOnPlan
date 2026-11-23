@@ -1,0 +1,1078 @@
+{
+  "Version": "2019-10-30",
+  "StartAction": "Registro de logs",
+  "Metadata": {
+    "entryPointPosition": {
+      "x": 20,
+      "y": 260
+    },
+    "ActionMetadata": {
+      "Registro de logs": {
+        "position": {
+          "x": 180,
+          "y": 260
+        },
+        "isFriendlyName": true
+      },
+      "Definicao de voz": {
+        "position": {
+          "x": 420,
+          "y": 260
+        },
+        "isFriendlyName": true,
+        "children": [
+          "Definicao de idioma"
+        ],
+        "parameters": {
+          "TextToSpeechVoice": {
+            "languageCode": "pt-BR"
+          },
+          "TextToSpeechEngine": {
+            "voiceProvider": "connect:agentic"
+          }
+        },
+        "overrideConsoleVoice": true,
+        "fragments": {
+          "SetContactData": "Definicao de idioma"
+        },
+        "overrideLanguageAttribute": true
+      },
+      "Definicao de idioma": {
+        "position": {
+          "x": 420,
+          "y": 260
+        },
+        "isFriendlyName": true,
+        "dynamicParams": []
+      },
+      "Boas Vindas": {
+        "position": {
+          "x": 660,
+          "y": 260
+        },
+        "isFriendlyName": true
+      },
+      "Coletar CPF (Lex)": {
+        "position": {
+          "x": 920,
+          "y": 260
+        },
+        "isFriendlyName": true,
+        "children": [
+          "Checar Sentimento Negativo"
+        ],
+        "parameters": {
+          "LexV2Bot": {
+            "AliasArn": {
+              "displayName": "Prod",
+              "useLexBotDropdown": true,
+              "lexV2BotName": "Botgroupsaude"
+            }
+          }
+        },
+        "fragments": {
+          "NegativeOverride": "Checar Sentimento Negativo"
+        },
+        "useLexBotDropdown": true,
+        "lexV2BotName": "Botgroupsaude",
+        "lexV2BotAliasName": "Prod",
+        "conditionMetadata": []
+      },
+      "Checar Sentimento Negativo": {
+        "position": {
+          "x": 920,
+          "y": 260
+        },
+        "condition": "NegativeOverride",
+        "isFriendlyName": true,
+        "conditions": [
+          {
+            "Condition": {
+              "Operands": [
+                {
+                  "displayName": "50%"
+                }
+              ]
+            }
+          }
+        ],
+        "conditionMetadata": [
+          {
+            "id": "3b48534f-814b-45c2-844d-75587b671324",
+            "operator": {
+              "name": "Is greater or equal",
+              "value": "GreaterThanOrEqualTo",
+              "shortDisplay": ">="
+            },
+            "value": "0.5",
+            "type": "NegativeOverride"
+          }
+        ]
+      },
+      "Loop CPF": {
+        "position": {
+          "x": 920,
+          "y": 20
+        },
+        "isFriendlyName": true
+      },
+      "Salvar CPF como Atributo": {
+        "position": {
+          "x": 1200,
+          "y": 260
+        },
+        "isFriendlyName": true,
+        "dynamicParams": []
+      },
+      "Consultar Cliente (Customer Profiles)": {
+        "position": {
+          "x": 1460,
+          "y": 260
+        },
+        "isFriendlyName": true
+      },
+      "Verificar Plano VIP": {
+        "position": {
+          "x": 1740,
+          "y": 260
+        },
+        "isFriendlyName": true
+      },
+      "Definir Prioridade VIP (1)": {
+        "position": {
+          "x": 2020,
+          "y": 120
+        },
+        "isFriendlyName": true
+      },
+      "Definir Prioridade Padrao (5)": {
+        "position": {
+          "x": 2020,
+          "y": 400
+        },
+        "isFriendlyName": true
+      },
+      "Saudacao Personalizada": {
+        "position": {
+          "x": 2300,
+          "y": 120
+        },
+        "isFriendlyName": true
+      },
+      "Saudacao Visitante": {
+        "position": {
+          "x": 2300,
+          "y": 400
+        },
+        "isFriendlyName": true
+      },
+      "Escolha de Regioes": {
+        "position": {
+          "x": 2580,
+          "y": 260
+        },
+        "isFriendlyName": true,
+        "parameters": {
+          "LexV2Bot": {
+            "AliasArn": {
+              "displayName": "Prod",
+              "useLexBotDropdown": true,
+              "lexV2BotName": "Botgroupsaude"
+            }
+          }
+        },
+        "useLexBotDropdown": true,
+        "lexV2BotName": "Botgroupsaude",
+        "lexV2BotAliasName": "Prod"
+      },
+      "Loop Regioes": {
+        "position": {
+          "x": 2580,
+          "y": 20
+        },
+        "isFriendlyName": true
+      },
+      "Salvar Regiao": {
+        "position": {
+          "x": 2860,
+          "y": 260
+        },
+        "isFriendlyName": true,
+        "dynamicParams": []
+      },
+      "Especialidade Medica": {
+        "position": {
+          "x": 3140,
+          "y": 260
+        },
+        "isFriendlyName": true,
+        "parameters": {
+          "LexV2Bot": {
+            "AliasArn": {
+              "displayName": "Prod",
+              "useLexBotDropdown": true,
+              "lexV2BotName": "Botgroupsaude"
+            }
+          }
+        },
+        "useLexBotDropdown": true,
+        "lexV2BotName": "Botgroupsaude",
+        "lexV2BotAliasName": "Prod"
+      },
+      "Loop Especialidade": {
+        "position": {
+          "x": 3140,
+          "y": 20
+        },
+        "isFriendlyName": true
+      },
+      "Salvar Especialidade": {
+        "position": {
+          "x": 3420,
+          "y": 260
+        },
+        "isFriendlyName": true,
+        "dynamicParams": []
+      },
+      "Lambda S3 Rede Credenciada": {
+        "position": {
+          "x": 3700,
+          "y": 260
+        },
+        "isFriendlyName": true,
+        "parameters": {
+          "LambdaFunctionARN": {
+            "displayName": "AmCOn-ConsultaRedeCredenciada"
+          }
+        },
+        "dynamicMetadata": {}
+      },
+      "Aviso Falha Consulta": {
+        "position": {
+          "x": 3700,
+          "y": 450
+        },
+        "isFriendlyName": true
+      },
+      "Verificar Retorno Medico": {
+        "position": {
+          "x": 3960,
+          "y": 260
+        },
+        "isFriendlyName": true
+      },
+      "Aviso Medico Nao Encontrado": {
+        "position": {
+          "x": 3960,
+          "y": 450
+        },
+        "isFriendlyName": true
+      },
+      "Informar Medico Credenciado": {
+        "position": {
+          "x": 4220,
+          "y": 260
+        },
+        "isFriendlyName": true
+      },
+      "Menu Pos-Consulta": {
+        "position": {
+          "x": 4480,
+          "y": 260
+        },
+        "isFriendlyName": true
+      },
+      "Despedida e Encerramento": {
+        "position": {
+          "x": 4740,
+          "y": 260
+        },
+        "isFriendlyName": true
+      },
+      "Desconectar": {
+        "position": {
+          "x": 5000,
+          "y": 440
+        },
+        "isFriendlyName": true
+      },
+      "Audio Transferencia Humano": {
+        "position": {
+          "x": 3960,
+          "y": 640
+        },
+        "isFriendlyName": true
+      },
+      "Definir Fila Atendimento Humano": {
+        "position": {
+          "x": 4220,
+          "y": 640
+        },
+        "isFriendlyName": true,
+        "parameters": {
+          "QueueId": {
+            "displayName": "Atendimento Humano"
+          }
+        },
+        "queue": {
+          "text": "Atendimento Humano"
+        }
+      },
+      "Transferir para Fila": {
+        "position": {
+          "x": 4480,
+          "y": 640
+        },
+        "isFriendlyName": true
+      },
+      "Aviso Fila Lotada ou Erro": {
+        "position": {
+          "x": 4740,
+          "y": 640
+        },
+        "isFriendlyName": true
+      }
+    },
+    "Annotations": [],
+    "name": "Saúde Group - Fluxo Completo VIP e S3",
+    "description": "Fluxo aperfeiçoado com identificação via Customer Profiles, prioridade VIP, consulta com tolerância a falhas na AWS Lambda integrada ao S3 e transbordo inteligente.",
+    "type": "contactFlow",
+    "status": "SAVED",
+    "hash": {}
+  },
+  "Actions": [
+    {
+      "Identifier": "Registro de logs",
+      "Type": "UpdateFlowLoggingBehavior",
+      "Parameters": {
+        "FlowLoggingBehavior": "Enabled"
+      },
+      "Transitions": {
+        "NextAction": "Definicao de voz"
+      }
+    },
+    {
+      "Identifier": "Definicao de voz",
+      "Type": "UpdateContactTextToSpeechVoice",
+      "Parameters": {
+        "TextToSpeechVoice": "ANA_PAULA",
+        "TextToSpeechEngine": "connect:agentic"
+      },
+      "Transitions": {
+        "NextAction": "Definicao de idioma",
+        "Errors": [
+          {
+            "NextAction": "Desconectar",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Definicao de idioma",
+      "Type": "UpdateContactData",
+      "Parameters": {
+        "LanguageCode": "pt-BR"
+      },
+      "Transitions": {
+        "NextAction": "Boas Vindas",
+        "Errors": [
+          {
+            "NextAction": "Desconectar",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Boas Vindas",
+      "Type": "MessageParticipant",
+      "Parameters": {
+        "SkipWhenDTMFBufferEnabled": "false",
+        "Text": "Olá! Seja muito bem-vindo à central de atendimento Saúde Group."
+      },
+      "Transitions": {
+        "NextAction": "Coletar CPF (Lex)",
+        "Errors": [
+          {
+            "NextAction": "Desconectar",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Coletar CPF (Lex)",
+      "Type": "ConnectParticipantWithLexBot",
+      "Parameters": {
+        "Text": "Para agilizar o seu atendimento, por favor, fale ou digite os 11 números do seu CPF.",
+        "LexV2Bot": {
+          "AliasArn": "arn:aws:lex:us-east-1:505599751703:bot-alias/EVGFOEJH6A/XHUG1NONWC"
+        }
+      },
+      "Transitions": {
+        "NextAction": "Salvar CPF como Atributo",
+        "Conditions": [
+          {
+            "NextAction": "Audio Transferencia Humano",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "Falarcomhumano"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "Loop CPF",
+            "ErrorType": "NoMatchingError"
+          },
+          {
+            "NextAction": "Checar Sentimento Negativo",
+            "ErrorType": "NoMatchingCondition"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Checar Sentimento Negativo",
+      "Type": "Compare",
+      "Parameters": {
+        "ComparisonValue": "$.Lex.SentimentResponse.Scores.Negative"
+      },
+      "Transitions": {
+        "NextAction": "Loop CPF",
+        "Conditions": [
+          {
+            "NextAction": "Audio Transferencia Humano",
+            "Condition": {
+              "Operator": "NumberGreaterOrEqualTo",
+              "Operands": [
+                "0.5"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "Loop CPF",
+            "ErrorType": "NoMatchingCondition"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Loop CPF",
+      "Type": "Loop",
+      "Parameters": {
+        "LoopCount": "2"
+      },
+      "Transitions": {
+        "NextAction": "Definir Prioridade Padrao (5)",
+        "Conditions": [
+          {
+            "NextAction": "Coletar CPF (Lex)",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "ContinueLooping"
+              ]
+            }
+          },
+          {
+            "NextAction": "Definir Prioridade Padrao (5)",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "DoneLooping"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "Definir Prioridade Padrao (5)",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Salvar CPF como Atributo",
+      "Type": "UpdateContactAttributes",
+      "Parameters": {
+        "Attributes": {
+          "CPF_Cliente": "$.Lex.Slots.CPF"
+        },
+        "TargetContact": "Current"
+      },
+      "Transitions": {
+        "NextAction": "Consultar Cliente (Customer Profiles)",
+        "Errors": [
+          {
+            "NextAction": "Definir Prioridade Padrao (5)",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Consultar Cliente (Customer Profiles)",
+      "Type": "GetCustomerProfile",
+      "Parameters": {
+        "ProfileRequestData": {
+          "IdentifierName": "CPF",
+          "IdentifierValue": "$.Attributes.CPF_Cliente"
+        },
+        "ProfileResponseData": [
+          "FirstName",
+          "LastName",
+          "AccountNumber",
+          "Attributes.Plano"
+        ]
+      },
+      "Transitions": {
+        "NextAction": "Verificar Plano VIP",
+        "Errors": [
+          {
+            "NextAction": "Definir Prioridade Padrao (5)",
+            "ErrorType": "NoMatchingError"
+          },
+          {
+            "NextAction": "Definir Prioridade Padrao (5)",
+            "ErrorType": "MultipleFoundError"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Verificar Plano VIP",
+      "Type": "Compare",
+      "Parameters": {
+        "ComparisonValue": "$.Customer.Attributes.Plano"
+      },
+      "Transitions": {
+        "NextAction": "Definir Prioridade Padrao (5)",
+        "Conditions": [
+          {
+            "NextAction": "Definir Prioridade VIP (1)",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "Premium VIP"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "Definir Prioridade Padrao (5)",
+            "ErrorType": "NoMatchingCondition"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Definir Prioridade VIP (1)",
+      "Type": "UpdateContactRoutingBehavior",
+      "Parameters": {
+        "QueuePriority": "1"
+      },
+      "Transitions": {
+        "NextAction": "Saudacao Personalizada"
+      }
+    },
+    {
+      "Identifier": "Definir Prioridade Padrao (5)",
+      "Type": "UpdateContactRoutingBehavior",
+      "Parameters": {
+        "QueuePriority": "5"
+      },
+      "Transitions": {
+        "NextAction": "Saudacao Visitante"
+      }
+    },
+    {
+      "Identifier": "Saudacao Personalizada",
+      "Type": "MessageParticipant",
+      "Parameters": {
+        "SkipWhenDTMFBufferEnabled": "false",
+        "Text": "Olá, $.Customer.FirstName! Localizei o seu plano $.Customer.Attributes.Plano."
+      },
+      "Transitions": {
+        "NextAction": "Escolha de Regioes",
+        "Errors": [
+          {
+            "NextAction": "Escolha de Regioes",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Saudacao Visitante",
+      "Type": "MessageParticipant",
+      "Parameters": {
+        "SkipWhenDTMFBufferEnabled": "false",
+        "Text": "Certo, vamos prosseguir com o seu atendimento."
+      },
+      "Transitions": {
+        "NextAction": "Escolha de Regioes",
+        "Errors": [
+          {
+            "NextAction": "Escolha de Regioes",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Escolha de Regioes",
+      "Type": "ConnectParticipantWithLexBot",
+      "Parameters": {
+        "Text": "Em qual região de São Paulo você procura atendimento médico? Zona Norte, Sul, Leste, Oeste ou Centro? Se preferir, diga falar com atendente.",
+        "LexV2Bot": {
+          "AliasArn": "arn:aws:lex:us-east-1:505599751703:bot-alias/EVGFOEJH6A/XHUG1NONWC"
+        }
+      },
+      "Transitions": {
+        "NextAction": "Salvar Regiao",
+        "Conditions": [
+          {
+            "NextAction": "Audio Transferencia Humano",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "Falarcomhumano"
+              ]
+            }
+          },
+          {
+            "NextAction": "Salvar Regiao",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "Buscaregioesdesp"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "Loop Regioes",
+            "ErrorType": "NoMatchingCondition"
+          },
+          {
+            "NextAction": "Loop Regioes",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Loop Regioes",
+      "Type": "Loop",
+      "Parameters": {
+        "LoopCount": "2"
+      },
+      "Transitions": {
+        "NextAction": "Audio Transferencia Humano",
+        "Conditions": [
+          {
+            "NextAction": "Escolha de Regioes",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "ContinueLooping"
+              ]
+            }
+          },
+          {
+            "NextAction": "Audio Transferencia Humano",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "DoneLooping"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "Audio Transferencia Humano",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Salvar Regiao",
+      "Type": "UpdateContactAttributes",
+      "Parameters": {
+        "Attributes": {
+          "RegiaoSolicitada": "$.Lex.Slots.Regiao"
+        },
+        "TargetContact": "Current"
+      },
+      "Transitions": {
+        "NextAction": "Especialidade Medica",
+        "Errors": [
+          {
+            "NextAction": "Especialidade Medica",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Especialidade Medica",
+      "Type": "ConnectParticipantWithLexBot",
+      "Parameters": {
+        "Text": "Qual especialidade médica você precisa? Por exemplo: Cardiologia, Pediatria, Ortopedia ou Clínica Geral. Ou diga falar com atendente.",
+        "LexV2Bot": {
+          "AliasArn": "arn:aws:lex:us-east-1:505599751703:bot-alias/EVGFOEJH6A/XHUG1NONWC"
+        }
+      },
+      "Transitions": {
+        "NextAction": "Salvar Especialidade",
+        "Conditions": [
+          {
+            "NextAction": "Salvar Especialidade",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "Redemedicacredenciada"
+              ]
+            }
+          },
+          {
+            "NextAction": "Audio Transferencia Humano",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "Falarcomhumano"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "Loop Especialidade",
+            "ErrorType": "NoMatchingCondition"
+          },
+          {
+            "NextAction": "Loop Especialidade",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Loop Especialidade",
+      "Type": "Loop",
+      "Parameters": {
+        "LoopCount": "2"
+      },
+      "Transitions": {
+        "NextAction": "Audio Transferencia Humano",
+        "Conditions": [
+          {
+            "NextAction": "Especialidade Medica",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "ContinueLooping"
+              ]
+            }
+          },
+          {
+            "NextAction": "Audio Transferencia Humano",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "DoneLooping"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "Audio Transferencia Humano",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Salvar Especialidade",
+      "Type": "UpdateContactAttributes",
+      "Parameters": {
+        "Attributes": {
+          "EspecialidadeSolicitada": "$.Lex.Slots.Especialidade"
+        },
+        "TargetContact": "Current"
+      },
+      "Transitions": {
+        "NextAction": "Lambda S3 Rede Credenciada",
+        "Errors": [
+          {
+            "NextAction": "Lambda S3 Rede Credenciada",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Lambda S3 Rede Credenciada",
+      "Type": "InvokeLambdaFunction",
+      "Parameters": {
+        "LambdaFunctionARN": "arn:aws:lambda:us-east-1:505599751703:function:AmCOn-ConsultaRedeCredenciada",
+        "InvocationTimeLimitSeconds": "8",
+        "InvocationType": "SYNCHRONOUS",
+        "LambdaParameters": {
+          "CPF": "$.Attributes.CPF_Cliente",
+          "Regiao": "$.Attributes.RegiaoSolicitada",
+          "Especialidade": "$.Attributes.EspecialidadeSolicitada",
+          "Plano": "$.Customer.Attributes.Plano"
+        },
+        "ResponseValidation": {
+          "ResponseType": "JSON"
+        }
+      },
+      "Transitions": {
+        "NextAction": "Verificar Retorno Medico",
+        "Errors": [
+          {
+            "NextAction": "Aviso Falha Consulta",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Aviso Falha Consulta",
+      "Type": "MessageParticipant",
+      "Parameters": {
+        "SkipWhenDTMFBufferEnabled": "false",
+        "Text": "Tivemos uma instabilidade momentânea na consulta ao catálogo médico. Vou transferir você para nossa equipe humana para prosseguir imediatamente."
+      },
+      "Transitions": {
+        "NextAction": "Audio Transferencia Humano",
+        "Errors": [
+          {
+            "NextAction": "Audio Transferencia Humano",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Verificar Retorno Medico",
+      "Type": "Compare",
+      "Parameters": {
+        "ComparisonValue": "$.External.Status"
+      },
+      "Transitions": {
+        "NextAction": "Aviso Medico Nao Encontrado",
+        "Conditions": [
+          {
+            "NextAction": "Informar Medico Credenciado",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "FOUND"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "Aviso Medico Nao Encontrado",
+            "ErrorType": "NoMatchingCondition"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Aviso Medico Nao Encontrado",
+      "Type": "MessageParticipant",
+      "Parameters": {
+        "SkipWhenDTMFBufferEnabled": "false",
+        "Text": "No momento não localizamos nenhum médico credenciado com disponibilidade imediata para os critérios informados. Vou transferir para nossa equipe verificar outras opções para você."
+      },
+      "Transitions": {
+        "NextAction": "Audio Transferencia Humano",
+        "Errors": [
+          {
+            "NextAction": "Audio Transferencia Humano",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Informar Medico Credenciado",
+      "Type": "MessageParticipant",
+      "Parameters": {
+        "SkipWhenDTMFBufferEnabled": "false",
+        "Text": "Encontrei a seguinte opção na nossa rede credenciada: $.External.NomeMedico, localizado em $.External.Endereco, telefone $.External.Telefone."
+      },
+      "Transitions": {
+        "NextAction": "Menu Pos-Consulta",
+        "Errors": [
+          {
+            "NextAction": "Audio Transferencia Humano",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Menu Pos-Consulta",
+      "Type": "GetParticipantInput",
+      "Parameters": {
+        "StoreInput": "False",
+        "InputTimeLimitSeconds": "6",
+        "Text": "Para ouvir novamente as informações, digite 1. Para falar com um de nossos atendentes para agendar, digite 2. Ou digite 3 para encerrar."
+      },
+      "Transitions": {
+        "NextAction": "Despedida e Encerramento",
+        "Conditions": [
+          {
+            "NextAction": "Informar Medico Credenciado",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "1"
+              ]
+            }
+          },
+          {
+            "NextAction": "Audio Transferencia Humano",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "2"
+              ]
+            }
+          },
+          {
+            "NextAction": "Despedida e Encerramento",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "3"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "Despedida e Encerramento",
+            "ErrorType": "InputTimeLimitExceeded"
+          },
+          {
+            "NextAction": "Despedida e Encerramento",
+            "ErrorType": "NoMatchingCondition"
+          },
+          {
+            "NextAction": "Despedida e Encerramento",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Audio Transferencia Humano",
+      "Type": "MessageParticipant",
+      "Parameters": {
+        "SkipWhenDTMFBufferEnabled": "false",
+        "Text": "Certo, vou transferir você para um de nossos especialistas. Por favor, aguarde um momento."
+      },
+      "Transitions": {
+        "NextAction": "Definir Fila Atendimento Humano",
+        "Errors": [
+          {
+            "NextAction": "Definir Fila Atendimento Humano",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Definir Fila Atendimento Humano",
+      "Type": "UpdateContactTargetQueue",
+      "Parameters": {
+        "QueueId": "arn:aws:connect:us-east-1:505599751703:instance/986b30c7-64ec-4ea8-a172-b4584705ff8f/queue/271b7e45-1638-4fe6-8625-a016a620a494"
+      },
+      "Transitions": {
+        "NextAction": "Transferir para Fila",
+        "Errors": [
+          {
+            "NextAction": "Aviso Fila Lotada ou Erro",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Transferir para Fila",
+      "Type": "TransferContactToQueue",
+      "Parameters": {},
+      "Transitions": {
+        "NextAction": "Aviso Fila Lotada ou Erro",
+        "Errors": [
+          {
+            "NextAction": "Aviso Fila Lotada ou Erro",
+            "ErrorType": "QueueAtCapacity"
+          },
+          {
+            "NextAction": "Aviso Fila Lotada ou Erro",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Aviso Fila Lotada ou Erro",
+      "Type": "MessageParticipant",
+      "Parameters": {
+        "SkipWhenDTMFBufferEnabled": "false",
+        "Text": "No momento todos os nossos especialistas estão ocupados. Por favor, tente novamente em alguns instantes ou acesse nosso aplicativo Saúde Group."
+      },
+      "Transitions": {
+        "NextAction": "Desconectar",
+        "Errors": [
+          {
+            "NextAction": "Desconectar",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Despedida e Encerramento",
+      "Type": "MessageParticipant",
+      "Parameters": {
+        "SkipWhenDTMFBufferEnabled": "false",
+        "Text": "A Saúde Group agradece o seu contato. Tenha um excelente dia!"
+      },
+      "Transitions": {
+        "NextAction": "Desconectar",
+        "Errors": [
+          {
+            "NextAction": "Desconectar",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Identifier": "Desconectar",
+      "Type": "DisconnectParticipant",
+      "Parameters": {},
+      "Transitions": {}
+    }
+  ]
+}
